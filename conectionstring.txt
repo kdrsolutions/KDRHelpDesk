@@ -1,0 +1,4 @@
+<connectionStrings>
+        <add name="HelpDesk1ConnectionString" connectionString="Data Source=ASUS-F3S\SQLEXPRESS;Initial Catalog=HelpDesk1;User ID=sa;Password=kdr123"
+            providerName="System.Data.SqlClient" />
+    </connectionStrings>
