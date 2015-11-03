@@ -9,12 +9,12 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
-            SelectCommand="SELECT [ID], [NAZWISKO], [IMIE], [EMAIL], [TYP] FROM [uzytkownicy]"></asp:SqlDataSource>
     </div>
     </form>
+
+    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+
     <script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
