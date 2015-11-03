@@ -1,0 +1,45 @@
+﻿body
+{
+	background: #f0f0f0;
+}
+
+div#MP_main_row
+{
+	position: relative;
+	min-height: 600px;
+}
+
+div#MP_menu
+{
+	background: #f0f0f0;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+div#MP_cont_col
+{
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+div#MP_navbar
+{
+	height: 30px;
+	background: #676767;
+}
+
+div#MP_footer
+{
+	background: #676767;
+	height: 40px;
+}
+
+div#MP_content
+{
+	min-height: 1000px;
+	background: #d7d7d7;
+}
