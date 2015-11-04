@@ -22,7 +22,7 @@ public partial class Default2 : System.Web.UI.Page
     public int Role
     {
         set { ViewState["xyz"] = value; }
-        get 
+        get
         {
             Object o = ViewState["xyz"]; 
             return o == null ? -1 : (int)o;
