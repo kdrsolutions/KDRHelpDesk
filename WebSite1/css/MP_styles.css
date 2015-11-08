@@ -130,12 +130,6 @@ div#MP_add_problem > a > span.glyphicon
 	color: #5cb85c;
 }
 
-div#MP_add_problem > a > span.glyphicon:hover
-{
-	font-size: 40px;
-	top: 5px;
-}
-
 div#MP_nav_user
 {
 	background: #272727;
@@ -157,6 +151,45 @@ div#MP_nav_user > span.glyphicon
 	top: 15px;
 	color: #f0f0f0;
 }
+div#MP_login_as
+{
+	background: #fff;
+	height: 170px;
+	width: 400px;
+	position: absolute;
+	top: 50px;
+	right: 0;
+	display: none;
+}
+div#MP_login_as div
+{
+	height: 100%;
+}
+img#avatar 
+{
+	width: 150px;
+	margin-top: 10px;
+}
+.logout_btn
+{
+	position:absolute;
+	bottom: 10px;
+	right: 0;
+}
+div#person_details
+{
+	text-align: left;
+	padding:10px;
+}
+div#person_details > h4 
+{
+	font-size: 25px;
+}
+div#MP_nav_user:hover div#MP_login_as
+{
+	display: block;
+}
+
 /*--------------------*/
 
 

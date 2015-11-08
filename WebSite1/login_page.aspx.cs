@@ -14,5 +14,6 @@ public partial class login_page : System.Web.UI.Page
     protected void signin_Click(object sender, EventArgs e)
     {
         Session["USER_ID"] = login_lab.Text;
+        Response.Redirect("~/Default2.aspx", false);
     }
 }

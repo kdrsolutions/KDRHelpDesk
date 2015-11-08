@@ -20,7 +20,7 @@
                         ID:
                     </label>
                     <div class="col-sm-10 col-xs-10">
-                        <asp:TextBox ID="login_lab" runat="server" type="login" CssClass="form-control" placeholder="Numer identyfikacyjny"></asp:TextBox>
+                        <asp:TextBox ID="login_lab" runat="server" type="login" CssClass="form-control" placeholder="Nazwa użytkownika"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="valid1" runat="server" ControlToValidate="login_lab"
                             Display="none" ErrorMessage="*"/>
                     </div>

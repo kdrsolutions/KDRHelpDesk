@@ -10,7 +10,15 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        Label1.Text = (String)Session["USER_ID"];
+        if (Session["USER_ID"] != null)
+            Label1.Text = (String)Session["USER_ID"];
+        else
+            Response.Redirect("~/login_page.aspx", false);
+    }
+    protected void logout_Click(object sender, EventArgs e)
+    {
+        Session["USER_ID"] = null;
+        Response.Redirect("~/login_page.aspx", false);
     }
 
     public string LoginName
@@ -24,7 +32,7 @@ public partial class Default2 : System.Web.UI.Page
         set { ViewState["xyz"] = value; }
         get
         {
-            Object o = ViewState["xyz"]; 
+            Object o = ViewState["xyz"];
             return o == null ? -1 : (int)o;
         }
     }
