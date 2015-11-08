@@ -1,6 +1,6 @@
 ﻿body
 {
-    background: #f0f0f0;
+    background: #272727;
     font-family: 'Lato' , sans-serif;
 }
 
@@ -10,62 +10,80 @@ a:link, a:hover, a:active, a:visited
     color: Black;
 }
 
-div#MP_main_row
+div.MP_main_row
 {
-    position: relative;
     min-height: 600px;
+}
+
+.col-lg-3, .col-lg-9
+{
+	padding: 0;
 }
 
 /****************/
 /*     MENU     */
 /****************/
+div#MP_sumary
+{
+	height: 100px;
+	border-bottom: 1px solid #202020;
+}
 div#MP_logo
 {
-    height: 80px;
+    height: 50px;
     text-align: center;
+    background: #f0f0f0;
 }
 div#MP_logo > span
 {
     font-size: 30px;
     position: relative;
-    top: 20px;
+    color: #272727;
+    top: 3px;
 }
-div#MP_menu
+td#MP_menu_col
 {
-    background: #f0f0f0;
+    background: #272727;
     height: 100%;
+    display: inline-block;
+    width: 300px;
 }
-div#MP_menu > ul
+ul#MP_menu
 {
-    position: absolute;
     left: 0;
     width: 100%;
     padding-left: 0;
     list-style: none;
 }
-div#MP_menu > ul > li
+ul#MP_menu > li
 {
     height: 60px;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid #202020;
     width: 100%;
 }
-div#MP_menu > ul > li > a
+ul#MP_menu > li > a
 {
     display: block;
-    height: 100%;
     text-align: center;
+    height: 100%;
+    opacity: 0.6;
 }
-div#MP_menu > ul > li > a:hover
+
+ul#MP_menu > li > a:hover
 {
-    background: #fff;
+	opacity: 0.8;
+	background: #303030;
 }
-div#MP_menu > ul > li > a > span
+
+ul#MP_menu > li > a > span
 {
-    color: Black;
+    font-size: 16px;
     position: relative;
-    top: 15px;
-    font-size: 20px;
+    top: 20px;
+    left: 5px;
+    color: #fff;
 }
+	
 
 /*--------------------*/
 
@@ -73,63 +91,93 @@ div#MP_menu > ul > li > a > span
 /*******************/
 /*     NAVABAR     */
 /*******************/
-nav.navbar , nav > div.container-fluid, div.navbar-header
+nav.navbar , div.navbar-header
 {
     height: 100%;
-    background: #676767;
+    background: #f0f0f0;
+    display: inline-block;
+    width: 60px;
+    
 }
 div#MP_navbar
 {
-    height: 80px;
-    background: #676767;
+    height: 50px;
+    background: #f0f0f0;
 }
 button#btn_min_menu 
 {
     position: absolute;
     left: 10px;
-    top: 15px;
     background: #fff;
     border-color: #888888;
     border-radius: 0;
 }
-div#MP_login_as 
+
+div#MP_add_problem 
 {
-    height: 100%;
-    text-align:right;
-    border: 1px solid red; /* dbg */
-}
-div#MP_login_as > span 
-{
-    position:relative;
-    top: 25px;
-    right:5px;
-    color: #fff;
-    font-size: 15px;
+	width: 50px;
+	height: 100%;
+	float: right;
+	display: inline-block;
+	text-align: center;
 }
 
+div#MP_add_problem > a > span.glyphicon
+{
+	font-size: 30px;
+	position: relative;
+	top: 10px;
+	color: #5cb85c;
+}
+
+div#MP_add_problem > a > span.glyphicon:hover
+{
+	font-size: 40px;
+	top: 5px;
+}
+
+div#MP_nav_user
+{
+	background: #272727;
+	width: 50px;
+	height: 100%;
+	float: right;
+	display: inline-block;
+	text-align: center;
+}
+div#MP_nav_user:hover 
+{
+	background: #303030;
+}
+
+div#MP_nav_user > span.glyphicon
+{
+	font-size: 20px;
+	position: relative;
+	top: 15px;
+	color: #f0f0f0;
+}
 /*--------------------*/
 
 
 
 
-div#MP_cont_col
+td#MP_content_col
 {
     height: 100%;
-    position: absolute;
-    top:0;
-    right:0;
+    width: 100%;
 }
 
 
 
 div#MP_footer
 {
-    background: #676767;
-    height: 40px;
+    background: #272727;
+    height: 10px;
 }
 
 div#MP_content
 {
-    min-height: 600px;
+    min-height: 700px;
     background: #d7d7d7;
 }

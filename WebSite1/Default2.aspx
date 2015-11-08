@@ -8,41 +8,52 @@
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="container-fluid">
-        <div class="row" id="MP_main_row">
-            <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs" id="MP_menu">
+    <table width="100%" height="100%" border="0">
+        <tr>
+            <td id="MP_menu_col" class="hidden-xs">
                 <div id="MP_logo">
                     <span><b>Help</b>Desk</span>
                 </div>
-                <ul>
-                    <li id="mo1" runat="server"><a href="#"><span>user button</span></a></li>
-                    <li id="mo2" runat="server"><a href="#"><span>user button</span></a></li>
-                    <li id="mo3" runat="server"><a href="#"><span>user button</span></a></li>
-                    <li id="mo4" runat="server"><a href="#"><span>spec button</span></a></li>
-                    <li id="mo5" runat="server"><a href="#"><span>spec button</span></a></li>
-                    <li id="mo6" runat="server"><a href="#"><span>admin button</span></a></li>
-                    <li id="mo7" runat="server"><a href="#"><span>admin button</span></a></li>
-                </ul>
-            </div>
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" id="MP_cont_col">
-                <div class="row">
-                    <div id="MP_navbar">
-                        <uc:min_menu runat="server"/>
-                        <div id="MP_login_as"><span>Zalogowany jako 
-                            <asp:Label ID="Label1" runat="server" Text="Jan Kowalski"></asp:Label></span></div>
-                    </div>
-                    <div id="MP_content">
-                    </div>
-                    <div id="MP_footer">
-                    </div>
+                <div id="MP_sumary">
+                    <span>sumary</span>
                 </div>
-            </div>
-        </div>
-    </div>
+                <ul id="MP_menu">
+                    <li id="Li1" runat="server"><a href="#"><span>Moje zgłoszenia</span></a></li>
+                    <li id="Li2" runat="server"><a href="#"><span>user button</span></a></li>
+                    <li id="Li3" runat="server"><a href="#"><span>user button</span></a></li>
+                    <li id="Li4" runat="server"><a href="#"><span>spec button</span></a></li>
+                    <li id="Li5" runat="server"><a href="#"><span>spec button</span></a></li>
+                    <li id="Li6" runat="server"><a href="#"><span>admin button</span></a></li>
+                    <li id="Li7" runat="server"><a href="#"><span>admin button</span></a></li>
+                </ul>
+            </td>
+            <td id="MP_content_col">
+                <div id="MP_navbar">
+                    <uc:min_menu ID="Min_menu1" runat="server" />
+                    <a href="#">
+                        <div id="MP_nav_user">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                    </a>
+                    <div id="MP_add_problem">
+                        <a href="#"><span class="glyphicon glyphicon-plus"></span></a>
+                    </div>
+                    <div id="MP_login_as">
+                    <!-- label zostanie umieszczony w tooltipie -->
+                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label></div>
+                </div>
+                <div id="MP_content">
+                </div>
+                <div id="MP_footer">
+                </div>
+            </td>
+        </tr>
+    </table>
 
     <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
 
-    <asp:HiddenField ID="HiddenField1" runat="server" value="0" />
+    <asp:HiddenField ID="HiddenField1" runat="server" Value="0" />
+
     <script src="js/bootstrap.min.js"></script>
 
 </asp:Content>

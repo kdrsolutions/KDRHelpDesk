@@ -5,10 +5,51 @@
 <head runat="server">
     <title></title>
     <link rel="Stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link href="css/login_styles.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div class="container">
+        <div id="login_frame">
+            <h3>
+                <b>Help</b>Desk</h3>
+            <div id="login_lab_zone">
+                <div class="form-group">
+                    <label for="login_lab" class="col-sm-2 col-xs-2 control-label">
+                        ID:
+                    </label>
+                    <div class="col-sm-10 col-xs-10">
+                        <asp:TextBox ID="login_lab" runat="server" type="login" CssClass="form-control" placeholder="Numer identyfikacyjny"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="valid1" runat="server" ControlToValidate="login_lab"
+                            Display="none" ErrorMessage="*"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password_lab" class="col-sm-2 col-xs-2 control-label">
+                        Hasło:
+                    </label>
+                    <div class="col-sm-10 col-xs-10">
+                        <asp:TextBox ID="password_lab" runat="server" type="password" CssClass="form-control"
+                            placeholder="Twoje hasło"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="valid2" runat="server" ControlToValidate="password_lab"
+                            Display="none" ErrorMessage="*"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-xs-10">
+                        <asp:CheckBox ID="CheckBox1" runat="server" Text="Zapamiętaj mnie" CssClass="rememb_me" />
+                    </div>
+                    <div class="col-sm-2 col-xs-2">
+                        <asp:Button ID="signin" runat="server" Text="Zaloguj" CssClass="btn btn-default"
+                            OnClick="signin_Click" />
+                    </div>
+                </div>
+            </div>
+            <div id="password_generator">
+                <a href="#"><span>Zapomniałem hasła</span></a>
+            </div>
+        </div>
     </div>
     </form>
 
