@@ -46,7 +46,7 @@ td#MP_menu_col
     background: #272727;
     height: 100%;
     display: inline-block;
-    width: 300px;
+    width: 250px;
 }
 ul#MP_menu
 {
@@ -57,33 +57,38 @@ ul#MP_menu
 }
 ul#MP_menu > li
 {
-    height: 60px;
+    height: 40px;
     border-bottom: 1px solid #202020;
     width: 100%;
+}
+ul#MP_menu > li > a > div
+{
+	padding: 0;
+	height: 100%;
 }
 ul#MP_menu > li > a
 {
     display: block;
-    text-align: center;
     height: 100%;
-    opacity: 0.6;
+    border-left: 3px solid #2897B7;
 }
-
 ul#MP_menu > li > a:hover
 {
-	opacity: 0.8;
 	background: #303030;
-}
-
-ul#MP_menu > li > a > span
-{
-    font-size: 16px;
-    position: relative;
-    top: 20px;
-    left: 5px;
-    color: #fff;
-}
 	
+}
+ul#MP_menu > li > a > div > span
+{
+    position: relative;
+    left: 10px;
+    top: 10px;
+    color: #e5e5e5;
+}
+ul#MP_menu > li > a > div > span.li_icon 
+{
+	font-size: 20px;
+	color: #2897B7;
+}
 
 /*--------------------*/
 
@@ -127,7 +132,7 @@ div#MP_add_problem > a > span.glyphicon
 	font-size: 30px;
 	position: relative;
 	top: 10px;
-	color: #5cb85c;
+	color: #2897B7;
 }
 
 div#MP_nav_user
