@@ -231,7 +231,7 @@
         </SelectedItemTemplate>
 </asp:ListView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-    ConnectionString="<%$ ConnectionStrings:HelpDeskOldConnectionString %>" 
+    ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
     DeleteCommand="DELETE FROM [uzytkownicy] WHERE [ID] = @ID" 
     InsertCommand="INSERT INTO [uzytkownicy] ([LOGIN], [IMIE], [NAZWISKO], [HASLO], [EMAIL], [TYP]) VALUES (@LOGIN, @IMIE, @NAZWISKO, @HASLO, @EMAIL, @TYP)" 
     SelectCommand="SELECT * FROM [uzytkownicy]" 

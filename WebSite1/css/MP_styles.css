@@ -165,7 +165,7 @@ div#MP_login_as
 	width: 400px;
 	position: absolute;
 	top: 50px;
-	right: 0;
+	right: 0px;;
 	display: none;
 }
 div#MP_login_as div
@@ -219,5 +219,7 @@ div#MP_footer
 div#MP_content
 {
     min-height: 700px;
+    width:100%;
     background: #d7d7d7;
 }
+

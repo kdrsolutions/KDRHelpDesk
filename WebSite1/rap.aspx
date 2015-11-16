@@ -12,7 +12,7 @@
     </asp:GridView>
 
 <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:HelpDeskOldConnectionString2 %>" 
+        ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
          
         SelectCommand="SELECT * FROM [uzytkownicy]" >
        
@@ -26,7 +26,7 @@
     </asp:GridView>
 
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:HelpDeskOldConnectionString2 %>" 
+        ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
          
         SelectCommand="SELECT * FROM [problemy]" >
        
