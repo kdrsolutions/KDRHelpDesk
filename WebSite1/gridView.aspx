@@ -33,7 +33,7 @@
     
     
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:HelpDeskOldConnectionString2 %>" 
+        ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
         DeleteCommand="DELETE FROM [uzytkownicy] WHERE [ID] = @ID" 
         InsertCommand="INSERT INTO [uzytkownicy] ([LOGIN], [IMIE], [NAZWISKO], [HASLO], [EMAIL], [TYP]) VALUES (@LOGIN, @IMIE, @NAZWISKO, @HASLO, @EMAIL, @TYP)" 
         SelectCommand="SELECT * FROM [uzytkownicy]" 
@@ -62,7 +62,7 @@
 
 
   <%--  <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:HelpDeskOldConnectionString2 %>" 
+        ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
         SelectCommand="SELECT LOGIN as xyz,NAZWISKO,IMIE FROM [uzytkownicy]" 
         >--%>
         

@@ -37,17 +37,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-10 col-xs-10">
-                        <asp:CheckBox ID="CheckBox1" runat="server" Text="Zapamiętaj mnie" CssClass="rememb_me" />
+                    <div class="col-sm-10 col-xs-10 zapn_hasl">
+                        <a href="#"><span>Zapomniałem hasła</span></a>
                     </div>
                     <div class="col-sm-2 col-xs-2">
                         <asp:Button ID="signin" runat="server" Text="Zaloguj" CssClass="btn btn-default"
                             OnClick="signin_Click" />
                     </div>
                 </div>
-            </div>
-            <div id="password_generator">
-                <a href="#"><span>Zapomniałem hasła</span></a>
             </div>
         </div>
     </div>

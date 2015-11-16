@@ -8,8 +8,9 @@ div#login_frame
 {
 	margin: auto;
 	width: 300px;
-	min-height: 240px;
+	min-height: 200px;
 	background: #fff;
+	border-bottom: 5px solid #272727;
 	box-shadow: 0px 0px 2px #676767;
 	border-radius: 2px;
 }
@@ -26,7 +27,6 @@ div#login_frame > h3
 div#login_lab_zone
 {
 	border-top: 1px solid #c7c7c7;
-	border-bottom: 1px solid #c7c7c7;
 	min-height: 160px;
 	padding-top: 20px;
 }
@@ -51,31 +51,6 @@ label.control-label
 	right: 30px;
 }
 
-div#password_generator
-{
-	height: 45px;
-	background: #272727;
-}
-
-div#password_generator:hover
-{
-	background: #303030;
-}
-
-div#password_generator > a
-{
-	display: block;
-	text-align: center;
-	height: 100%;
-	text-decoration: none;
-}
-div#password_generator > a > span
-{
-	position: relative;
-	top: 12px;
-	color: #fff;
-}
-
 span.rememb_me > label 
 {
 	position: relative;
@@ -94,4 +69,16 @@ span.rememb_me
 	position: relative;
 	top: 15px;
 	left: 5px;
+}
+
+div.zapn_hasl 
+{
+    position: relative;
+    top: 15px;
+    left: 5px;
+}
+
+div.zapn_hasl > a
+{
+   text-decoration: none;
 }
