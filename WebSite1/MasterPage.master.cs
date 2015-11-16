@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class MasterPage : System.Web.UI.MasterPage
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["USER_ID"] != null)
+            Label1.Text = (String)Session["USER_ID"];
+        else
+            Response.Redirect("~/login_page.aspx", false);
+
+        if (Session["PERMISSION"] != null)
+        {
+            Li1.Visible = true;
+            Li2.Visible = true;
+            Li3.Visible = true;
+            switch ((int)Session["PERMISSION"])
+            {
+                case 1:
+                    Li4.Visible = true;
+                    Li5.Visible = true;
+                    break;
+                case 2:
+                    Li4.Visible = true;
+                    Li5.Visible = true;
+                    Li6.Visible = true;
+                    Li7.Visible = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    protected void logout_Click(object sender, EventArgs e)
+    {
+        Session["USER_ID"] = null;
+        Response.Redirect("~/login_page.aspx", false);
+    }
+
+    public string LoginName
+    {
+        get { return Label1.Text; }
+        set { Label1.Text = value; }
+    }
+
+    public int Role
+    {
+        set { ViewState["xyz"] = value; }
+        get
+        {
+            Object o = ViewState["xyz"];
+            return o == null ? -1 : (int)o;
+        }
+    }
+}
