@@ -18,13 +18,13 @@
                     <span>sumary</span>
                 </div>
                 <ul id="MP_menu">
-                    <li id="Li1" runat="server"><a href="#"><span>Moje zgłoszenia</span></a></li>
-                    <li id="Li2" runat="server"><a href="#"><span>user button</span></a></li>
-                    <li id="Li3" runat="server"><a href="#"><span>user button</span></a></li>
-                    <li id="Li4" runat="server"><a href="#"><span>spec button</span></a></li>
-                    <li id="Li5" runat="server"><a href="#"><span>spec button</span></a></li>
-                    <li id="Li6" runat="server"><a href="#"><span>admin button</span></a></li>
-                    <li id="Li7" runat="server"><a href="#"><span>admin button</span></a></li>
+                    <li id="li1" runat="server"><a href="MojeZgloszenia.aspx"><span>moje zgłoszenia</span></a></li>
+                    <li id="li2" runat="server"><a href="#"><span>user button</span></a></li>
+                    <li id="li3" runat="server"><a href="#"><span>user button</span></a></li>
+                    <li id="li4" runat="server"><a href="#"><span>spec button</span></a></li>
+                    <li id="li5" runat="server"><a href="#"><span>spec button</span></a></li>
+                    <li id="li6" runat="server"><a href="#"><span>admin button</span></a></li>
+                    <li id="li7" runat="server"><a href="#"><span>admin button</span></a></li>
                 </ul>
             </td>
             <td id="MP_content_col">

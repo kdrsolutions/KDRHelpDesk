@@ -18,6 +18,8 @@ div.MP_main_row
 .col-lg-3, .col-lg-9
 {
 	padding: 0;
+    top: -6px;
+    left: -2px;
 }
 
 /****************/
