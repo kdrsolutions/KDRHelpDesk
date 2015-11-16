@@ -15,6 +15,6 @@ public partial class login_page : System.Web.UI.Page
     {
         Session["USER_ID"] = login_lab.Text;
         Session["PERMISSION"] = 0;
-        Response.Redirect("~/MojeZgloszenia.aspx", false);
+        Response.Redirect("~/rap.aspx", false);
     }
 }
