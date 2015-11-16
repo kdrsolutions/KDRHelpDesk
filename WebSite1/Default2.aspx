@@ -18,6 +18,7 @@
                     <span>sumary</span>
                 </div>
                 <ul id="MP_menu">
+<<<<<<< HEAD
                     <li id="li1" runat="server"><a href="MojeZgloszenia.aspx"><span>moje zgłoszenia</span></a></li>
                     <li id="li2" runat="server"><a href="#"><span>user button</span></a></li>
                     <li id="li3" runat="server"><a href="#"><span>user button</span></a></li>
@@ -25,6 +26,78 @@
                     <li id="li5" runat="server"><a href="#"><span>spec button</span></a></li>
                     <li id="li6" runat="server"><a href="#"><span>admin button</span></a></li>
                     <li id="li7" runat="server"><a href="#"><span>admin button</span></a></li>
+=======
+                    <li id="Li1" runat="server" visible="False">
+                        <a href="#">
+                            <div class="col-xs-10">
+                                <span>Moje podsumowanie</span>
+                            </div>
+                            <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                <span class="glyphicon glyphicon-dashboard li_icon"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li id="Li2" runat="server" visible="False">
+                        <a href="#">
+                            <div class="col-xs-10">
+                                <span>Wysłane zgłoszenia</span>
+                            </div>
+                            <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                <span class="glyphicon glyphicon-bullhorn li_icon"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li id="Li3" runat="server" visible="False">
+                        <a href="#">
+                            <div class="col-xs-10">
+                                <span>Moje zgłoszenia</span>
+                            </div>
+                            <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                <span class="glyphicon glyphicon-bullhorn li_icon"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li id="Li4" runat="server" visible="False">
+                        <a href="#">
+                            <div class="col-xs-10">
+                                <span>Moje zgłoszenia</span>
+                            </div>
+                            <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                <span class="glyphicon glyphicon-bullhorn li_icon"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li id="Li5" runat="server" visible="False">
+                        <a href="#">
+                            <div class="col-xs-10">
+                                <span>Moje zgłoszenia</span>
+                            </div>
+                            <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                <span class="glyphicon glyphicon-bullhorn li_icon"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li id="Li6" runat="server" visible="False">
+                        <a href="#">
+                            <div class="col-xs-10">
+                                <span>Moje zgłoszenia</span>
+                            </div>
+                            <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                <span class="glyphicon glyphicon-bullhorn li_icon"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li id="Li7" runat="server" visible="False">
+                        <a href="#">
+                            <div class="col-xs-10">
+                                <span>Moje zgłoszenia</span>
+                            </div>
+                            <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                <span class="glyphicon glyphicon-bullhorn li_icon"></span>
+                            </div>
+                        </a>
+                    </li>
+>>>>>>> e06515090f071d77fa769902bf5dc8899ffc558d
                 </ul>
             </td>
             <td id="MP_content_col">
@@ -37,7 +110,8 @@
                                 <div class="col-sm-6">
                                     <div id="person_details">
                                         <asp:Label ID="Label1" runat="server" Text="wylogowany"></asp:Label>
-                                        <asp:Button ID="logout_exit" runat="server" Text="Wyloguj" CssClass="logout_btn btn btn-default" OnClick="logout_Click" />
+                                        <asp:Button ID="logout_exit" runat="server" Text="Wyloguj" CssClass="logout_btn btn btn-default"
+                                            OnClick="logout_Click" />
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

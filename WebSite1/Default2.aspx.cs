@@ -14,6 +14,28 @@ public partial class Default2 : System.Web.UI.Page
             Label1.Text = (String)Session["USER_ID"];
         else
             Response.Redirect("~/login_page.aspx", false);
+
+        if (Session["PERMISSION"] != null)
+        {
+            Li1.Visible = true;
+            Li2.Visible = true;
+            Li3.Visible = true;
+            switch ((int)Session["PERMISSION"])
+            {
+                case 1:
+                    Li4.Visible = true;
+                    Li5.Visible = true;
+                    break;
+                case 2:
+                    Li4.Visible = true;
+                    Li5.Visible = true;
+                    Li6.Visible = true;
+                    Li7.Visible = true;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     protected void logout_Click(object sender, EventArgs e)
     {
