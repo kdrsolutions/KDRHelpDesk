@@ -14,26 +14,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
         else
             Response.Redirect("~/login_page.aspx", false);
 
-        if (Session["PERMISSION"] != null)
+        if ((bool)Session["PERMISSION_SPEC"])
         {
-            Li1.Visible = true;
-            Li2.Visible = true;
-            Li3.Visible = true;
-            switch ((int)Session["PERMISSION"])
-            {
-                case 1:
-                    Li4.Visible = true;
-                    Li5.Visible = true;
-                    break;
-                case 2:
-                    Li4.Visible = true;
-                    Li5.Visible = true;
-                    Li6.Visible = true;
-                    Li7.Visible = true;
-                    break;
-                default:
-                    break;
-            }
+            Li4.Visible = true;
+            Li5.Visible = true;
+        }
+
+        if ((bool)Session["PERMISSION_ADMIN"])
+        {
+            Li6.Visible = true;
+            Li7.Visible = true;
         }
     }
     protected void logout_Click(object sender, EventArgs e)

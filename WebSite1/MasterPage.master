@@ -23,7 +23,7 @@
                     <span>sumary</span>
                 </div>
                 <ul id="MP_menu">
-                    <li id="Li1" runat="server" visible="False"><a href="#">
+                    <li id="Li1" runat="server" visible="true"><a href="#">
                         <div class="col-xs-10">
                             <span>Moje podsumowanie</span>
                         </div>
@@ -31,7 +31,7 @@
                             <span class="glyphicon glyphicon-dashboard li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li2" runat="server" visible="False"><a href="#">
+                    <li id="Li2" runat="server" visible="true"><a href="#">
                         <div class="col-xs-10">
                             <span>Wysłane zgłoszenia</span>
                         </div>
@@ -39,7 +39,7 @@
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li3" runat="server" visible="False"><a href="#">
+                    <li id="Li3" runat="server" visible="true"><a href="#">
                         <div class="col-xs-10">
                             <span>Moje zgłoszenia</span>
                         </div>

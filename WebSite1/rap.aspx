@@ -14,7 +14,7 @@
 <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
         ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
          
-        SelectCommand="SELECT * FROM [uzytkownicy]" >
+        SelectCommand="SELECT * FROM [Uzytkownicy]" >
        
     </asp:SqlDataSource>
 
