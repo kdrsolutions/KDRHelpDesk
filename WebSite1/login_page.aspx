@@ -11,6 +11,10 @@
 <body>
     <form id="form1" runat="server">
     <div class="container">
+        <div id="wrong_password" runat="server" class="alert alert-danger" visible="false"
+            role="alert">
+            Podano nieprawidłowe dane logowania, spróbuj ponownie.
+        </div>
         <div id="login_frame">
             <h3>
                 <b>Help</b>Desk</h3>
@@ -20,9 +24,10 @@
                         ID:
                     </label>
                     <div class="col-sm-10 col-xs-10">
-                        <asp:TextBox ID="login_lab" runat="server" type="login" CssClass="form-control" placeholder="Nazwa użytkownika"></asp:TextBox>
+                        <asp:TextBox ID="login_lab" runat="server" CssClass="form-control" placeholder="Nazwa użytkownika"
+                            MaxLength="20" /></asp:TextBox>
                         <asp:RequiredFieldValidator ID="valid1" runat="server" ControlToValidate="login_lab"
-                            Display="none" ErrorMessage="*"/>
+                            Display="none" ErrorMessage="*" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -30,10 +35,10 @@
                         Hasło:
                     </label>
                     <div class="col-sm-10 col-xs-10">
-                        <asp:TextBox ID="password_lab" runat="server" type="password" CssClass="form-control"
-                            placeholder="Twoje hasło"></asp:TextBox>
+                        <asp:TextBox ID="password_lab" runat="server" CssClass="form-control" placeholder="Twoje hasło"
+                            TextMode="Password" MaxLength="30"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="valid2" runat="server" ControlToValidate="password_lab"
-                            Display="none" ErrorMessage="*"/>
+                            Display="none" ErrorMessage="*" />
                     </div>
                 </div>
                 <div class="form-group">

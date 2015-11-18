@@ -82,3 +82,12 @@ div.zapn_hasl > a
 {
    text-decoration: none;
 }
+
+#wrong_password 
+{
+    text-align: center;
+    position: relative;
+    top: 10px;
+    width: 400px;
+    margin: auto;
+}
