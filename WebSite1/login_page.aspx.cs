@@ -13,10 +13,28 @@ public partial class login_page : System.Web.UI.Page
     {
 
     }
+    public static string HashCode(string str)
+    {
+        string rethash = "";
+        try
+        {
+            System.Security.Cryptography.SHA1 hash = System.Security.Cryptography.SHA1.Create();
+            System.Text.ASCIIEncoding encoder = new System.Text.ASCIIEncoding();
+            byte[] combined = encoder.GetBytes(str);
+            hash.ComputeHash(combined);
+            rethash = Convert.ToBase64String(hash.Hash);
+        }
+        catch (Exception ex)
+        {
+            string strerr = "Error in HashCode : " + ex.Message;
+        }
+        return rethash;
+    }
     protected void signin_Click(object sender, EventArgs e)
     {
         string sqlstring;
-        sqlstring = "SELECT Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = '" + login_lab.Text + "' AND HashHaslo = HashBytes('SHA1', '" + password_lab.Text + "');";
+        sqlstring = "SELECT IdUzytkownika, Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = '" + login_lab.Text + "' AND HashHaslo = HashBytes('SHA1', '" + password_lab.Text + "');";
+        //sqlstring = "SELECT Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = @login AND HashHaslo = @haslo;";
 
         /* ########################## */
         /* # testowy generator SHA1 # */
@@ -30,20 +48,21 @@ public partial class login_page : System.Web.UI.Page
         {
             conn.Open();
             cmd.CommandText = sqlstring;
-            //cmd.Parameters.AddWithValue("@login", login_lab.Text);
-            //cmd.Parameters.AddWithValue("@haslo", password_lab.Text);
+            cmd.Parameters.AddWithValue("@login", login_lab.Text);
+            cmd.Parameters.AddWithValue("@haslo", HashCode(password_lab.Text));
             
             using (var reader = cmd.ExecuteReader())
             {
                 
                 if (reader.Read())
                 {
-                    Session["USER_ID"] = login_lab.Text;
+                    Session["USER_ID"] = (int)reader.GetValue(0);
+                    Session["USER_NAME"] = (string)reader.GetValue(1);
                     // CHECK ADMIN PERMISSIONs
-                    Session["PERMISSION_ADMIN"] = (bool)reader.GetValue(3);
+                    Session["PERMISSION_ADMIN"] = (bool)reader.GetValue(4);
 
                     // CHECK SPEC PERMISSIONs
-                    Session["PERMISSION_SPEC"] = (bool)reader.GetValue(2);
+                    Session["PERMISSION_SPEC"] = (bool)reader.GetValue(3);
 
                    Response.Redirect("~/rap.aspx", false);
                 }
