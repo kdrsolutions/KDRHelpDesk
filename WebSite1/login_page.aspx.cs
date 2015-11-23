@@ -15,7 +15,8 @@ public partial class login_page : System.Web.UI.Page
     {
         string sqlstring;
         //sqlstring = "Select Login, HashHaslo from [Uzytkownicy] where Login='" + login_lab.Text + "' and HashHaslo = HashBytes('SHA1', '" + password_lab.Text + "');";
-        sqlstring = "Select Login, HashHaslo, Specjalista, Administrator from [Uzytkownicy] where Login=@userID and HashHaslo = HashBytes('SHA1', @haslo);";
+        //sqlstring = "Select Login, HashHaslo, Specjalista, Administrator from [Uzytkownicy] where Login=@userID and HashHaslo = HashBytes('SHA1', @haslo);";
+        sqlstring = "Select Login, HashHaslo, Specjalista, Administrator from [Uzytkownicy] where Login=@userID ";
         //if (Authentication(login_lab.Text, password_lab.Text))
 
         /* ########################## */
