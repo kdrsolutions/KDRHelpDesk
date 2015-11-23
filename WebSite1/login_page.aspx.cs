@@ -4,6 +4,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 
 
 public partial class login_page : System.Web.UI.Page
@@ -12,28 +14,20 @@ public partial class login_page : System.Web.UI.Page
     {
 
     }
-    public static string HashCode(string str)
+    public string SHA1(string data)
     {
-        string rethash = "";
-        try
-        {
-            System.Security.Cryptography.SHA1 hash = System.Security.Cryptography.SHA1.Create();
-            System.Text.ASCIIEncoding encoder = new System.Text.ASCIIEncoding();
-            byte[] combined = encoder.GetBytes(str);
-            hash.ComputeHash(combined);
-            rethash = Convert.ToBase64String(hash.Hash);
-        }
-        catch (Exception ex)
-        {
-            string strerr = "Error in HashCode : " + ex.Message;
-        }
-        return rethash;
+        byte[] hash = new SHA1CryptoServiceProvider().ComputeHash(
+                             new UTF8Encoding().GetBytes(data));
+        string str = string.Empty;
+        foreach (byte num in hash)
+            str = str + string.Format("{0,0:x2}", (object)num);
+        return str;
     }
     protected void signin_Click(object sender, EventArgs e)
     {
         string sqlstring;
-        sqlstring = "SELECT IdUzytkownika, Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = '" + login_lab.Text + "' AND HashHaslo = HashBytes('SHA1', '" + password_lab.Text + "');";
-        //sqlstring = "SELECT Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = @login AND HashHaslo = @haslo;";
+        //sqlstring = "SELECT IdUzytkownika, Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = '" + login_lab.Text + "' AND HashHaslo = HashBytes('SHA1', '" + password_lab.Text + "');";
+        sqlstring = "SELECT Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = @login AND HashHaslo = @haslo;";
 
         /* ########################## */
         /* # testowy generator SHA1 # */
@@ -48,8 +42,8 @@ public partial class login_page : System.Web.UI.Page
             conn.Open();
             cmd.CommandText = sqlstring;
             cmd.Parameters.AddWithValue("@login", login_lab.Text);
-            cmd.Parameters.AddWithValue("@haslo", HashCode(password_lab.Text));
-            
+            cmd.Parameters.AddWithValue("@haslo", SHA1(password_lab.Text));
+            Label1.Text = SHA1(password_lab.Text);
             using (var reader = cmd.ExecuteReader())
             {
                 
