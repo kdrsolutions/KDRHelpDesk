@@ -1,6 +1,9 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
-<%@ Register TagPrefix="uc" TagName="min_menu" Src="~/Controls/min_menu.ascx" %>
+
+<%@ Register src="Controls/min_menu.ascx" tagname="min_menu" tagprefix="uc1" %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -83,7 +86,7 @@
             </td>
             <td id="MP_content_col">
                 <div id="MP_navbar">
-                    <uc:min_menu ID="Min_menu1" runat="server" />
+                    <uc1:min_menu ID="Min_menu1" runat="server" />
                     <div id="MP_nav_user">
                         <span class="glyphicon glyphicon-user"></span>
                         <div id="MP_login_as">
@@ -106,6 +109,7 @@
                         <a href="#"><span class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="left"
                             title="Dodaj zgłoszenie"></span></a>
                     </div>
+                   
                 </div>
                 <div id="MP_content">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
