@@ -58,9 +58,9 @@
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li5" runat="server" visible="False"><a href="RaportUzytkownicy.aspx">
+                    <li id="Li5" runat="server" visible="False"><a href="MenuRaportow.aspx">
                         <div class="col-xs-10">
-                            <span>Raporty Użytkownicy</span>
+                            <span>Menu Raportów</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
