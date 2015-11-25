@@ -74,11 +74,7 @@
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-<<<<<<< HEAD
-                    <li id="Li7" runat="server" visible="False"><a href="rap.aspx">
-=======
                     <li id="Li7" runat="server" visible="False"><a href="MojeZgloszenia.aspx">
->>>>>>> a252928ac447e0bc5b725c0781ebe1f402bec451
                         <div class="col-xs-10">
                             <span>Raporty i zestawienia</span>
                         </div>
