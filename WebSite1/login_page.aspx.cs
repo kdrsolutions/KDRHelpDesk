@@ -40,9 +40,14 @@ public partial class login_page : System.Web.UI.Page
     protected void signin_Click(object sender, EventArgs e)
     {
         string sqlstring;
+<<<<<<< HEAD
 
         sqlstring = "SELECT IdUzytkownika, Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = @login";
         
+=======
+        sqlstring = "SELECT IdUzytkownika, Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = @login";
+
+>>>>>>> aa87d915a504aecda49238997c1e1983c97cd848
         using (var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HelpDesk1ConnectionString"].ConnectionString))
         using (var cmd = conn.CreateCommand())
         {
