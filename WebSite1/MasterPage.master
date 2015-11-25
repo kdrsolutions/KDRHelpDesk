@@ -50,25 +50,25 @@
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li4" runat="server" visible="False"><a href="#">
+                    <li id="Li4" runat="server" visible="False"><a href="Przypomnienia.aspx">
                         <div class="col-xs-10">
-                            <span>Moje zgłoszenia</span>
+                            <span>Przypomnienia</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li5" runat="server" visible="False"><a href="#">
+                    <li id="Li5" runat="server" visible="False"><a href="RaportUzytkownicy.aspx">
                         <div class="col-xs-10">
-                            <span>Moje zgłoszenia</span>
+                            <span>Raporty Użytkownicy</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li6" runat="server" visible="False"><a href="#">
+                    <li id="Li6" runat="server" visible="False"><a href="RaportZlecenia.aspx">
                         <div class="col-xs-10">
-                            <span>Moje zgłoszenia</span>
+                            <span>Zlecenia</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
