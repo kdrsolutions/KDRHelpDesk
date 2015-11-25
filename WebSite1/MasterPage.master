@@ -42,7 +42,7 @@
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li3" runat="server" visible="true"><a href="#">
+                    <li id="Li3" runat="server" visible="true"><a href="MojeZgloszenia.aspx">
                         <div class="col-xs-10">
                             <span>Moje zgłoszenia</span>
                         </div>

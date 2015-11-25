@@ -94,10 +94,10 @@
       ,t.[Nazwa] as TematKat
       ,z.[DataZgloszenia]
       ,z.[DataZakonczenia]
-      FROM [HelpDesk].[dbo].[Zgloszenia] z
-      LEFT JOIN [HelpDesk].[dbo].[ZgloszeniaStatusy] s ON z.[IdStatusu] = s.[IdStatusu]
-      LEFT JOIN [HelpDesk].[dbo].[Tematy] t ON z.[IdTematu] = t.[IdTypu]
-      LEFT JOIN [HelpDesk].[dbo].[Uzytkownicy] u ON z.[IDUzytkownika] = u.IdUzytkownika
+      FROM [Zgloszenia] z
+      LEFT JOIN [ZgloszeniaStatusy] s ON z.[IdStatusu] = s.[IdStatusu]
+      LEFT JOIN [Tematy] t ON z.[IdTematu] = t.[IdTypu]
+      LEFT JOIN [Uzytkownicy] u ON z.[IDUzytkownika] = u.IdUzytkownika
 where z.IDUzytkownika = @userid AND (@idz IS NULL OR z.IDZgloszenia = @idz ) 
 AND  (@temat IS NULL OR z.Temat LIKE '%' + @temat + '%' ) 
 AND (@opis IS NULL OR z.Opis = '%' + @opis + '%' )
