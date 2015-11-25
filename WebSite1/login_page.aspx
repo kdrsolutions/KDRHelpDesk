@@ -53,8 +53,6 @@
             </div>
         </div>
     </div>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
     </form>
 
     <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>

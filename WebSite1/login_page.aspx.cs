@@ -57,13 +57,8 @@ public partial class login_page : System.Web.UI.Page
                     byte[] myHash = Sha1Hash(password_lab.Text);
                     byte[] serverHash = (byte[])reader.GetValue(2);
 
-                    // dbg
-                    Label1.Text = HashToString(myHash);
-                    Label2.Text = HashToString(serverHash);
-
                     if (HashToString(myHash) == HashToString(serverHash))
                     {
-                        /*
                         Session["USER_ID"] = (int)reader.GetValue(0);
                         Session["USER_NAME"] = (string)reader.GetValue(1);
                         // CHECK ADMIN PERMISSIONs
@@ -73,7 +68,6 @@ public partial class login_page : System.Web.UI.Page
                         Session["PERMISSION_SPEC"] = (bool)reader.GetValue(3);
 
                         Response.Redirect("~/rap.aspx", false);
-                         */
                     }
                     else
                     {
