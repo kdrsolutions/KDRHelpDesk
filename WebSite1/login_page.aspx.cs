@@ -14,14 +14,28 @@ public partial class login_page : System.Web.UI.Page
     {
 
     }
-    public string SHA1(string data)
+    static byte[] Sha1Hash(string s)
     {
-        byte[] hash = new SHA1CryptoServiceProvider().ComputeHash(
-                             new UTF8Encoding().GetBytes(data));
-        string str = string.Empty;
-        foreach (byte num in hash)
-            str = str + string.Format("{0,0:x2}", (object)num);
-        return str;
+        SHA1 sha1 = SHA1.Create();
+        Encoding windows1252 = Encoding.GetEncoding(1252);
+        byte[] octets = windows1252.GetBytes(s);
+        byte[] hash = sha1.ComputeHash(octets);
+
+        return hash;
+    }
+    static string HashToString(byte[] bytes)
+    {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < bytes.Length; ++i)
+        {
+            byte b = bytes[i];
+            if (i > 0 && 0 == i % 4) sb.Append(' ');
+            sb.AppendFormat(b.ToString("X2"));
+        }
+
+        string s = sb.ToString();
+        return s;
     }
     protected void signin_Click(object sender, EventArgs e)
     {
@@ -35,6 +49,7 @@ public partial class login_page : System.Web.UI.Page
 
 
         //sqlstring = "SELECT IdUzytkownika, Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = '" + login_lab.Text + "' AND HashHaslo = HashBytes('SHA1', '" + password_lab.Text + "');";
+<<<<<<< HEAD
         //sqlstring = "SELECT Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = @login AND HashHaslo = @haslo;";
 
 
@@ -45,28 +60,46 @@ public partial class login_page : System.Web.UI.Page
 
 
 
+=======
+        sqlstring = "SELECT IdUzytkownika, Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = @login";
+        
+>>>>>>> 01cacd52fcb32a89f168d12924631e0a6d5e2e3e
         using (var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HelpDesk1ConnectionString"].ConnectionString))
         using (var cmd = conn.CreateCommand())
         {
             conn.Open();
             cmd.CommandText = sqlstring;
             cmd.Parameters.AddWithValue("@login", login_lab.Text);
-            cmd.Parameters.AddWithValue("@haslo", SHA1(password_lab.Text));
-            Label1.Text = SHA1(password_lab.Text);
             using (var reader = cmd.ExecuteReader())
             {
                 
                 if (reader.Read())
                 {
-                    Session["USER_ID"] = (int)reader.GetValue(0);
-                    Session["USER_NAME"] = (string)reader.GetValue(1);
-                    // CHECK ADMIN PERMISSIONs
-                    Session["PERMISSION_ADMIN"] = (bool)reader.GetValue(4);
+                    byte[] myHash = Sha1Hash(password_lab.Text);
+                    byte[] serverHash = (byte[])reader.GetValue(2);
 
-                    // CHECK SPEC PERMISSIONs
-                    Session["PERMISSION_SPEC"] = (bool)reader.GetValue(3);
+                    // dbg
+                    Label1.Text = HashToString(myHash);
+                    Label2.Text = HashToString(serverHash);
 
-                   Response.Redirect("~/rap.aspx", false);
+                    if (HashToString(myHash) == HashToString(serverHash))
+                    {
+                        /*
+                        Session["USER_ID"] = (int)reader.GetValue(0);
+                        Session["USER_NAME"] = (string)reader.GetValue(1);
+                        // CHECK ADMIN PERMISSIONs
+                        Session["PERMISSION_ADMIN"] = (bool)reader.GetValue(4);
+
+                        // CHECK SPEC PERMISSIONs
+                        Session["PERMISSION_SPEC"] = (bool)reader.GetValue(3);
+
+                        Response.Redirect("~/rap.aspx", false);
+                         */
+                    }
+                    else
+                    {
+                        wrong_password.Visible = true;
+                    }
                 }
                 else
                 {
