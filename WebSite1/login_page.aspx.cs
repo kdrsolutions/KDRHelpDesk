@@ -66,7 +66,7 @@ public partial class login_page : System.Web.UI.Page
                         // CHECK SPEC PERMISSIONs
                         Session["PERMISSION_SPEC"] = (bool)reader.GetValue(3);
 
-                        Response.Redirect("~/rap.aspx", false);
+                        Response.Redirect("~/Przypomnienia.aspx", false);
                     }
                     else
                     {

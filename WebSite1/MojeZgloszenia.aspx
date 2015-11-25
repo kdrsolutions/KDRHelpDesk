@@ -196,10 +196,10 @@
     </asp:ListView>
 
 <asp:SqlDataSource ID="Kabaret" runat="server" 
-    ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString1 %>" 
+    ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
     DeleteCommand="DELETE FROM [Korespondencja] WHERE [IdKorespondencji] = ?" 
     InsertCommand="INSERT INTO [Korespondencja] ([IdKorespondencji], [IdZgloszenia], [IdUzytkownika], [Tresc], [Data]) VALUES (?, ?, ?, ?, ?)" 
-    ProviderName="<%$ ConnectionStrings:HelpDesk1ConnectionString1.ProviderName %>" 
+    ProviderName="<%$ ConnectionStrings:HelpDesk1ConnectionString.ProviderName %>" 
     SelectCommand="SELECT * FROM [Korespondencja]" 
     
         UpdateCommand="UPDATE [Korespondencja] SET [IdZgloszenia] = ?, [IdUzytkownika] = ?, [Tresc] = ?, [Data] = ? WHERE [IdKorespondencji] = ?">
