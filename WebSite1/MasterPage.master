@@ -42,13 +42,25 @@
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li3" runat="server" visible="true"><a href="#">
+                    <li id="Li3" runat="server" visible="true"><a href="MojeZgloszenia.aspx">
                         <div class="col-xs-10">
                             <span>Moje zgłoszenia</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
+                          
                         </div>
+                        
+                    </a></li>
+                                        <li id="Li8" runat="server" visible="true"><a href="Uzytkownicy.aspx">
+                        <div class="col-xs-10">
+                            <span>Użytkownicy</span>
+                        </div>
+                        <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                            <span class="glyphicon glyphicon-bullhorn li_icon"></span>
+                          
+                        </div>
+                        
                     </a></li>
                     <li id="Li4" runat="server" visible="False"><a href="Przypomnienia.aspx">
                         <div class="col-xs-10">
@@ -58,9 +70,9 @@
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li5" runat="server" visible="False"><a href="MenuRaportow.aspx">
+                    <li id="Li5" runat="server" visible="False"><a href="RaportUzytkownicy.aspx">
                         <div class="col-xs-10">
-                            <span>Menu Raportów</span>
+                            <span>Raporty Użytkownicy</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
