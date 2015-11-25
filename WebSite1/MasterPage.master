@@ -28,7 +28,7 @@
                 <ul id="MP_menu">
                     <li id="Li1" runat="server" visible="true"><a href="#">
                         <div class="col-xs-10">
-                            <span>Moje podsumowanie</span>
+                            <span>Zgłoszenia</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-dashboard li_icon"></span>
@@ -36,7 +36,7 @@
                     </a></li>
                     <li id="Li2" runat="server" visible="true"><a href="#">
                         <div class="col-xs-10">
-                            <span>Wysłane zgłoszenia</span>
+                            <span>Zlecenia</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
@@ -44,7 +44,7 @@
                     </a></li>
                     <li id="Li3" runat="server" visible="true"><a href="MojeZgloszenia.aspx">
                         <div class="col-xs-10">
-                            <span>Moje zgłoszenia</span>
+                            <span>Raporty</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
@@ -64,7 +64,7 @@
                     </a></li>
                     <li id="Li4" runat="server" visible="False"><a href="Przypomnienia.aspx">
                         <div class="col-xs-10">
-                            <span>Przypomnienia</span>
+                            <span>Użytkownicy</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
@@ -72,7 +72,11 @@
                     </a></li>
                     <li id="Li5" runat="server" visible="False"><a href="RaportUzytkownicy.aspx">
                         <div class="col-xs-10">
+<<<<<<< HEAD
                             <span>Raporty Użytkownicy</span>
+=======
+                            <span>Zgłoszenia</span>
+>>>>>>> 9b150369038c8a193d4e8d8d7c5f0b5f43331b0e
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
@@ -80,7 +84,7 @@
                     </a></li>
                     <li id="Li6" runat="server" visible="False"><a href="RaportZlecenia.aspx">
                         <div class="col-xs-10">
-                            <span>Zlecenia</span>
+                            <span>Raporty</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
@@ -88,7 +92,7 @@
                     </a></li>
                     <li id="Li7" runat="server" visible="False"><a href="MojeZgloszenia.aspx">
                         <div class="col-xs-10">
-                            <span>Raporty i zestawienia</span>
+                            <span>Przypomnienia</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
