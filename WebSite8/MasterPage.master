@@ -1,15 +1,15 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
-
-<%@ Register src="Controls/min_menu.ascx" tagname="min_menu" tagprefix="uc1" %>
-
-
+<%@ Register Src="Controls/min_menu.ascx" TagName="min_menu" TagPrefix="uc1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="css/MP_styles.css" rel="stylesheet" type="text/css" />
+
+    <script src="js/JScript.js" type="text/javascript"></script>
+
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -23,31 +23,22 @@
                     <span><b>Help</b>Desk</span>
                 </div>
                 <div id="MP_sumary">
-                    <span>sumary</span>
                 </div>
                 <ul id="MP_menu">
-                    <li id="Li1" runat="server" visible="true"><a  runat="server" href="~/DodajZgloszenie.aspx">
+                    <li id="Li2" runat="server" visible="False"><a href="">
                         <div class="col-xs-10">
-                            <span>Zgłoszenia</span>
+                            <span>Użytkownicy</span>
+                        </div>
+                        <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                            <span class="glyphicon glyphicon-user li_icon"></span>
+                        </div>
+                    </a></li>
+                    <li id="Li1" runat="server" visible="true"><a href="MojeZgloszenia.aspx">
+                        <div class="col-xs-10">
+                            <span>Centrum zgłoszeń</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-dashboard li_icon"></span>
-                        </div>
-                    </a></li>
-                    <li id="Li2" runat="server" visible="true"><a href="">
-                        <div class="col-xs-10">
-                            <span>Wysłane zgłoszenia</span>
-                        </div>
-                        <div class="col-xs-2" style="border-left: 1px solid #202020;">
-                            <span class="glyphicon glyphicon-bullhorn li_icon"></span>
-                        </div>
-                    </a></li>
-                    <li id="Li3" runat="server" visible="true"><a href="#">
-                        <div class="col-xs-10">
-                            <span>Moje zgłoszenia</span>
-                        </div>
-                        <div class="col-xs-2" style="border-left: 1px solid #202020;">
-                            <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
                     <li id="Li4" runat="server" visible="False"><a href="Przypomnienia.aspx">
@@ -55,33 +46,60 @@
                             <span>Przypomnienia</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
-                            <span class="glyphicon glyphicon-bullhorn li_icon"></span>
+                            <span class="glyphicon glyphicon-bell li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li5" runat="server" visible="False"><a href="MenuRaportow.aspx">
-                        <div class="col-xs-10">
-                            <span>Menu Raportów</span>
-                        </div>
-                        <div class="col-xs-2" style="border-left: 1px solid #202020;">
-                            <span class="glyphicon glyphicon-bullhorn li_icon"></span>
-                        </div>
-                    </a></li>
-                    <li id="Li6" runat="server" visible="False"><a href="RaportZlecenia.aspx">
-                        <div class="col-xs-10">
-                            <span>Zlecenia</span>
-                        </div>
-                        <div class="col-xs-2" style="border-left: 1px solid #202020;">
-                            <span class="glyphicon glyphicon-bullhorn li_icon"></span>
-                        </div>
-                    </a></li>
-                    <li id="Li7" runat="server" visible="False"><a href="MojeZgloszenia.aspx">
+                    <li id="Li3" runat="server" visible="False"><a href="#" onclick="Li3_submenu()">
                         <div class="col-xs-10">
                             <span>Raporty i zestawienia</span>
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
-                            <span class="glyphicon glyphicon-bullhorn li_icon"></span>
+                            <span class="glyphicon glyphicon-duplicate li_icon"></span>
                         </div>
-                    </a></li>
+                    </a>
+                        <ul id="Li3_sub" class="sub_menu" style="display: none;">
+                            <li id="Li3_1" runat="server" visible="False"><a href="ListaSpraw.aspx">
+                                <div class="col-xs-10">
+                                    <span>Lista spraw</span>
+                                </div>
+                                <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                    <span class="glyphicon glyphicon-list-alt li_icon"></span>
+                                </div>
+                            </a></li>
+                            <li id="Li3_2" runat="server" visible="False"><a href="TerminRealizacjiSpraw.aspx">
+                                <div class="col-xs-10">
+                                    <span>Terminy</span>
+                                </div>
+                                <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                    <span class="glyphicon glyphicon-calendar li_icon"></span>
+                                </div>
+                            </a></li>
+                            <li id="Li3_3" runat="server" visible="False"><a href="Raport z Ocen.aspx">
+                                <div class="col-xs-10">
+                                    <span>Oceny</span>
+                                </div>
+                                <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                    <span class="glyphicon glyphicon-star-empty li_icon"></span>
+                                </div>
+                            </a></li>
+                            <li id="Li3_4" runat="server" visible="False"><a href="DanySpecjalista.aspx">
+                                <div class="col-xs-10">
+                                    <span>Specjaliści</span>
+                                </div>
+                                <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                    <span class="glyphicon glyphicon-wrench li_icon"></span>
+                                </div>
+                            </a></li>
+                            <li id="Li3_5" runat="server" visible="False"><a href="RaportUzytkownicy.aspx">
+                                <div class="col-xs-10">
+                                    <span>Użytkownicy</span>
+                                </div>
+                                <div class="col-xs-2" style="border-left: 1px solid #202020;">
+                                    <span class="glyphicon glyphicon-user li_icon"></span>
+                                </div>
+                            </a></li>
+                        </ul>
+                    </li>
                 </ul>
             </td>
             <td id="MP_content_col">
@@ -106,16 +124,17 @@
                         </div>
                     </div>
                     <div id="MP_add_problem">
-                        <a href="#"><span class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="left"
+                        <a href="DodajZgloszenie.aspx"><span class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="left"
                             title="Dodaj zgłoszenie"></span></a>
                     </div>
-                   
+                </div>
+                <div id="MP_przypomnienia">
+                    <ul id="ListBox1" runat="server">
+                    </ul>
                 </div>
                 <div id="MP_content">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
-                </div>
-                <div id="MP_footer">
                 </div>
             </td>
         </tr>

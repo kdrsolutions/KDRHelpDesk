@@ -29,6 +29,7 @@ div#MP_sumary
 {
 	height: 100px;
 	border-bottom: 1px solid #202020;
+	border-right: 1px solid #202020;
 }
 div#MP_logo
 {
@@ -50,46 +51,73 @@ td#MP_menu_col
     display: inline-block;
     width: 250px;
 }
-ul#MP_menu
+ul#MP_menu,
+ul.sub_menu
 {
     left: 0;
     width: 100%;
     padding-left: 0;
     list-style: none;
 }
-ul#MP_menu > li
+ul#MP_menu > li,
+ul.sub_menu > li
 {
     height: 40px;
     border-bottom: 1px solid #202020;
     width: 100%;
 }
-ul#MP_menu > li > a > div
+ul#MP_menu > li > a > div,
+ul.sub_menu > li > a > div
 {
 	padding: 0;
 	height: 100%;
 }
-ul#MP_menu > li > a
+ul#MP_menu > li > a,
+ul.sub_menu > li > a
 {
     display: block;
     height: 100%;
-    border-left: 3px solid #2897B7;
+    border-left: 3px solid #f0ad4e;
 }
-ul#MP_menu > li > a:hover
+ul#MP_menu > li > a:hover,
+ul.sub_menu > li > a:hover
 {
 	background: #303030;
 	
 }
-ul#MP_menu > li > a > div > span
+ul#MP_menu > li > a > div > span,
+ul.sub_menu > li > a > div > span
 {
     position: relative;
     left: 10px;
     top: 10px;
     color: #e5e5e5;
 }
-ul#MP_menu > li > a > div > span.li_icon 
+ul#MP_menu > li > a > div > span.li_icon,
+ul.sub_menu > li > a > div > span.li_icon 
 {
 	font-size: 20px;
-	color: #2897B7;
+	color: #f0ad4e;
+}
+
+ul.sub_menu 
+{
+	position: relative;
+	top: -40px;
+	left: 250px;
+	list-style: none;
+	padding: 0px;
+	background: #272727;
+	border-top: 1px solid #202020;
+}
+
+ul.sub_menu > li 
+{
+	display: block;
+	height: 40px;
+	width: 100%;
+	border-bottom: 1px solid #202020;
+	
 }
 
 /*--------------------*/
@@ -134,7 +162,7 @@ div#MP_add_problem > a > span.glyphicon
 	font-size: 30px;
 	position: relative;
 	top: 10px;
-	color: #2897B7;
+	color: #f0ad4e;
 }
 
 div#MP_nav_user
@@ -222,4 +250,54 @@ div#MP_content
     width:100%;
     background: #d7d7d7;
 }
+/*************************/
+/*     PRZYPOMNIENIA     */
+/*************************/
+div#MP_przypomnienia 
+{
+	margin-bottom: -10px;
+}
+div#MP_przypomnienia > ul
+{
+	padding: 0px;
+}
 
+div#MP_przypomnienia > ul > li 
+{
+	top: 0;
+	list-style: none;
+	display:inline-block;
+	width: 200px;
+	background: #272727;
+	border-right: 1px solid #202020;
+	border-top: 1px solid #202020;
+}
+
+div#MP_przypomnienia > ul > li > div#id0
+{
+	color: #FFF;
+	font-size: 12px;
+	display: block;
+	background: #f0ad4e;
+	border-bottom: 1px solid #202020;
+	padding: 10px;
+}
+div#MP_przypomnienia > ul > li > div#id1
+{
+	color: #FFF;
+	font-size: 12px;
+	display: none;
+	padding: 3px;
+	width: 200px;
+	min-height: 50px;
+	line-height: 12px;
+	text-align: center;
+}
+
+div#MP_przypomnienia > ul > li:hover div#id1
+{
+	background: #373737;
+	position: absolute;
+	display: block;
+	
+}
