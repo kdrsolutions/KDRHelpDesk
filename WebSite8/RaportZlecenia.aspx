@@ -12,7 +12,7 @@
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
    
-        ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>" 
         SelectCommand="SELECT *from Zgloszenia">
         
        

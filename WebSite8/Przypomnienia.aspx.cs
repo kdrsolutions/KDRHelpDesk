@@ -19,7 +19,7 @@ public partial class Przypomnienia : System.Web.UI.Page
         string sqlstring;
         sqlstring = "SELECT Opis FROM [Przypomnienia] WHERE DataNastWywol <= GETDATE();";
 
-        using (var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HelpDesk1ConnectionString"].ConnectionString))
+        using (var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HelpDeskConnectionString"].ConnectionString))
         using (var cmd = conn.CreateCommand())
         {
             conn.Open();
