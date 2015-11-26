@@ -42,7 +42,7 @@ public partial class login_page : System.Web.UI.Page
         string sqlstring;
         sqlstring = "SELECT IdUzytkownika, Login, HashHaslo, Specjalista, Administrator FROM [Uzytkownicy] WHERE Login = @login";
         
-        using (var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HelpDesk1ConnectionString"].ConnectionString))
+        using (var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HelpDeskConnectionString"].ConnectionString))
         using (var cmd = conn.CreateCommand())
         {
             conn.Open();

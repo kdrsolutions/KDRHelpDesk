@@ -24,5 +24,18 @@ public partial class DodajZgloszenie : System.Web.UI.Page
         {
             e.Values["IdStatusu"] = ddl.SelectedValue;
         }
+
+        ddl = e.Item.FindControl("DropDownList2") as DropDownList;
+        if (ddl != null)
+        {
+            e.Values["IdTematu"] = ddl.SelectedValue;
+        }
+
+
+
+    }
+    protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ListView2.Visible = true;
     }
 }

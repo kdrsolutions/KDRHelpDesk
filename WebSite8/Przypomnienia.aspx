@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<<<<<<< HEAD
+
     <asp:GridView ID="GridView1" runat="server" 
          DataSourceID="SqlDataSource1">
         <Columns>
@@ -16,7 +16,7 @@
 
     <asp:SqlDataSource runat="server" 
    
-        ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>" 
         SelectCommand="SELECT *from Przypomnienia" ID="SQLDataSource1">
         
        
@@ -26,14 +26,13 @@
       
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
    
-        ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>" 
         SelectCommand="SELECT *from ZgloszeniaStatusy">
         
        
         
         </asp:SqlDataSource>
-=======
->>>>>>> cb08fe7f0340bdf8a254451756c9f8050f3d37e8
+
 
     <ul ID="ListBox1" runat="server">
     </ul>

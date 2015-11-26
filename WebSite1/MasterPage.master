@@ -42,7 +42,7 @@
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li3" runat="server" visible="true"><a href="MojeZgloszenia.aspx">
+                    <li id="Li3" runat="server" visible="true"><a href="MenuRaportow.aspx">
                         <div class="col-xs-10">
                             <span>Raporty</span>
                         </div>
@@ -52,7 +52,7 @@
                         </div>
                         
                     </a></li>
-                                        <li id="Li8" runat="server" visible="true"><a href="Uzytkownicy.aspx">
+                       <li id="Li8" runat="server" visible="true"><a href="Uzytkownicy.aspx">
                         <div class="col-xs-10">
                             <span>Użytkownicy</span>
                         </div>
@@ -62,34 +62,27 @@
                         </div>
                         
                     </a></li>
-                    <li id="Li4" runat="server" visible="False"><a href="Przypomnienia.aspx">
+                    <li id="Li4" runat="server" visible="False"><a href="MojeZgloszenia.aspx">
                         <div class="col-xs-10">
-                            <span>Użytkownicy</span>
-                        </div>
-                        <div class="col-xs-2" style="border-left: 1px solid #202020;">
-                            <span class="glyphicon glyphicon-bullhorn li_icon"></span>
-                        </div>
-                    </a></li>
-                    <li id="Li5" runat="server" visible="False"><a href="RaportUzytkownicy.aspx">
-                        <div class="col-xs-10">
-<<<<<<< HEAD
-                            <span>Raporty Użytkownicy</span>
-=======
                             <span>Zgłoszenia</span>
->>>>>>> 9b150369038c8a193d4e8d8d7c5f0b5f43331b0e
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li6" runat="server" visible="False"><a href="RaportZlecenia.aspx">
+                    <li id="Li5" runat="server" visible="False"><a href="MenuRaportow.aspx">
                         <div class="col-xs-10">
+
                             <span>Raporty</span>
+
+                          
+
                         </div>
                         <div class="col-xs-2" style="border-left: 1px solid #202020;">
                             <span class="glyphicon glyphicon-bullhorn li_icon"></span>
                         </div>
                     </a></li>
+            
                     <li id="Li7" runat="server" visible="False"><a href="MojeZgloszenia.aspx">
                         <div class="col-xs-10">
                             <span>Przypomnienia</span>

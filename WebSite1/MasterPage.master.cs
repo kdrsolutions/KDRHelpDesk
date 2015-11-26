@@ -21,8 +21,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         if ((bool)Session["PERMISSION_ADMIN"])
         {
-            Li6.Visible = true;
-            Li7.Visible = true;
+                       Li7.Visible = true;
         }
     }
     protected void logout_Click(object sender, EventArgs e)

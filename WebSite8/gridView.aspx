@@ -33,7 +33,7 @@
     
     
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>" 
         DeleteCommand="DELETE FROM [uzytkownicy] WHERE [ID] = @ID" 
         InsertCommand="INSERT INTO [uzytkownicy] ([LOGIN], [IMIE], [NAZWISKO], [HASLO], [EMAIL], [TYP]) VALUES (@LOGIN, @IMIE, @NAZWISKO, @HASLO, @EMAIL, @TYP)" 
         SelectCommand="SELECT * FROM [uzytkownicy]" 

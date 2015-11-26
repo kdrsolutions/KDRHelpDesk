@@ -12,7 +12,7 @@
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
    
-        ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString %>" 
+        ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>" 
         SelectCommand="SELECT [IdUzytkownika], [Imie], [Nazwisko], [Opis], [Login], [EMail], [NrTelefonu], [Firma], [Aktywny], [Specjalista], [Administrator], [Adres] FROM [Uzytkownicy] ORDER BY [Nazwisko], [Imie], [IdUzytkownika]">
     </asp:SqlDataSource>
 
