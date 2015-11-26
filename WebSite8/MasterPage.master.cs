@@ -8,22 +8,29 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        Li4.Visible = true;
+        Li5.Visible = true;
+        Li6.Visible = true;
+        Li7.Visible = true;
+        /*
         if (Session["USER_NAME"] != null)
             Label1.Text = (String)Session["USER_NAME"];
+
+        if (Session["PERMISSION_SPEC"] != null && (bool)Session["PERMISSION_SPEC"])
+            {
+                Li4.Visible = true;
+                Li5.Visible = true;
+            }
+
+        if (Session["PERMISSION_ADMIN"] != null && (bool)Session["PERMISSION_ADMIN"])
+            {
+                Li6.Visible = true;
+                Li7.Visible = true;
+            }
+
         else
             Response.Redirect("~/login_page.aspx", false);
-
-        if ((bool)Session["PERMISSION_SPEC"])
-        {
-            Li4.Visible = true;
-            Li5.Visible = true;
-        }
-
-        if ((bool)Session["PERMISSION_ADMIN"])
-        {
-            Li6.Visible = true;
-            Li7.Visible = true;
-        }
+         * */
     }
     protected void logout_Click(object sender, EventArgs e)
     {
