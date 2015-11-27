@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>"
         SelectCommand="SELECT NULL AS IdTypu, 'Wybierz...' AS Nazwa
         UNION
@@ -23,7 +24,10 @@
                     <asp:Label ID="IDZgloszeniaLabel" runat="server" Text='<%# Eval("IDZgloszenia") %>' />
                 </td>
                 <td>
-                    <asp:Label ID="IdTematuLabel" runat="server" Text='<%# Eval("IDTematu") %>' />
+                    <asp:Label ID="Temad" runat="server" Text='<%# Eval("Temad") %>' />
+                    <br>
+                     <asp:Label ID="TematLabel" runat="server" Text='<%# Eval("Temat") %>' /> 
+                    
                 </td>
                 <td>
                     <asp:Label ID="OpisLabel" runat="server" Text='<%# Eval("Opis") %>' />
@@ -31,9 +35,7 @@
                 <td>
                     <asp:Label ID="IdStatusuLabel" runat="server" Text='<%# Eval("StatusNazwa") %>' />
                 </td>
-                <td>
-                    <asp:Label ID="TematLabel" runat="server" Text='<%# Eval("Temat") %>' />
-                </td>
+
                 <td>
                     <asp:Label ID="DataZgloszeniaLabel" runat="server" Text='<%# Eval("DataZgloszenia") %>' />
                 </td>
@@ -65,24 +67,26 @@
                 <td>
                 </td>
                 <td>
-                    <asp:TextBox ID="TematTextBox" runat="server" Text='<%# Bind("Temat") %>' />
+                    <asp:DropDownList ID="dropdownlist2" runat="server" DataSourceID="sqldatasource5"
+                        DataTextField="nazwa" DataValueField="idtypu">
+                    </asp:DropDownList>
+                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Temat") %>' />
                 </td>
                 <td>
                     <asp:TextBox ID="OpisTextBox" runat="server" Text='<%# Bind("Opis") %>' />
                 </td>
                 <td>
-                    <asp:DropDownList ID="dropdownlist1" runat="server" DataSourceID="sqldatasource3"
+                  <%--  <asp:DropDownList ID="dropdownlist1" runat="server" DataSourceID="sqldatasource3"
                         DataTextField="nazwa" DataValueField="Idstatusu">
-                    </asp:DropDownList>
+                    </asp:DropDownList>--%>
+                   
                  </td>
                  <td>
-                    <asp:DropDownList ID="dropdownlist2" runat="server" DataSourceID="sqldatasource5"
-                        DataTextField="nazwa" DataValueField="idtypu">
-                    </asp:DropDownList>
+                    
                 </td>
                 
                 <td>
-                    <asp:TextBox ID="DataZgloszeniaTextBox" runat="server" Text='<%# Bind("DataZgloszenia") %>' />
+                
                 </td>
                 <td>
                 </td>
@@ -114,9 +118,7 @@
                                 <th runat="server">
                                     IdStatusu
                                 </th>
-                                <th runat="server">
-                                    Temat
-                                </th>
+                               
                                 <th runat="server">
                                     DataZgloszenia
                                 </th>
@@ -158,7 +160,9 @@
                     <asp:Label ID="IDZgloszeniaLabel1" runat="server" Text='<%# Eval("IDZgloszenia") %>' />
                 </td>
                 <td>
-                    <asp:TextBox ID="TematTextBox" runat="server" Text='<%# Bind("Temat") %>' />
+                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource5"
+                        DataTextField="Nazwa" DataValueField="IdTypu" SelectedValue='<%# Bind("IdTypu") %>'>
+                    </asp:DropDownList>
                 </td>
                 <td>
                     <asp:TextBox ID="OpisTextBox" runat="server" Text='<%# Bind("Opis") %>' />
@@ -169,12 +173,14 @@
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="SqlDataSource5"
-                        DataTextField="Nazwa" DataValueField="IdTypu" SelectedValue='<%# Bind("IdTypu") %>'>
-                    </asp:DropDownList>
+                   
                 </td>
                 <td>
                     <asp:TextBox ID="DataZgloszeniaTextBox" runat="server" Text='<%# Bind("DataZgloszenia") %>' />
+                
+                
+                
+                
                 </td>
                 <td>
                     <asp:TextBox ID="DataZakonczeniaTextBox" runat="server" Text='<%# Bind("DataZakonczenia") %>' />
@@ -194,17 +200,19 @@
                     <asp:Label ID="IDZgloszeniaLabel" runat="server" Text='<%# Eval("IDZgloszenia") %>' />
                 </td>
                 <td>
-                    <asp:Label ID="TematLabel" runat="server" Text='<%# Eval("Temat") %>' />
+                    
+                    <asp:Label ID="Temad" runat="server" Text='<%# Eval("Temad") %>' />
+                    <br>
+                    </br>
+                     <asp:Label ID="TematLabel" runat="server" Text='<%# Eval("Temat") %>' /> 
                 </td>
                 <td>
                     <asp:Label ID="OpisLabel" runat="server" Text='<%# Eval("Opis") %>' />
                 </td>
                 <td>
-                    <asp:Label ID="IdStatusuLabel" runat="server" Text='<%# Eval("IdStatusu") %>' />
+                    <asp:Label ID="IdStatusuLabel" runat="server" Text='<%# Eval("StatusNazwa") %>' />
                 </td>
-                <td>
-                    <asp:Label ID="IdTematuLabel" runat="server" Text='<%# Eval("IdTematu") %>' />
-                </td>
+            
                 <td>
                     <asp:Label ID="DataZgloszeniaLabel" runat="server" Text='<%# Eval("DataZgloszenia") %>' />
                 </td>
@@ -222,12 +230,14 @@
     </asp:ListView>
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>"
         DeleteCommand="DELETE FROM [Zgloszenia] WHERE [IDZgloszenia] = @IDZgloszenia"
-        InsertCommand="INSERT INTO [Zgloszenia] ([Temat], [Opis], [IdStatusu], [IdTematu], [DataZgloszenia], [DataZakonczenia], [IdUzytkownika], [IdSpecjalisty]) VALUES (@Temat, @Opis, 1, @IdTematu, @DataZgloszenia, @DataZakonczenia, @IdUzytkownika, @IdSpecjalisty)"
-        SelectCommand="SELECT z.* , s.Nazwa AS StatusNazwa, u.Nazwisko + ' ' + u.Imie AS Specjalista
+        InsertCommand="INSERT INTO [Zgloszenia] ([Temat], [Opis], [IdStatusu], [IdTematu], [DataZgloszenia], [DataZakonczenia], [IdUzytkownika], [IdSpecjalisty]) VALUES (@Temat, @Opis, 1, @IdTematu, getdate(), @DataZakonczenia, @IdUzytkownika, @IdSpecjalisty)"
+        SelectCommand="SELECT z.* , s.Nazwa AS StatusNazwa, u.Nazwisko + ' ' + u.Imie AS Specjalista, t.Nazwa AS Temad
 FROM [Zgloszenia] z
 LEFT JOIN ZgloszeniaStatusy s ON s.IdStatusu = z.IdStatusu
 LEFT JOIN Uzytkownicy u ON u.IdUzytkownika = z.IDSpecjalisty
-WHERE (u.[IdUzytkownika] = 2) 
+LEFT JOIN Tematy t ON t.IdTypu = z.IdTematu
+
+WHERE (z.[IdUzytkownika] = @IdUzytkownika) 
 ORDER BY [DataZgloszenia] DESC" UpdateCommand="UPDATE [Zgloszenia] SET [Temat] = @Temat, [Opis] = @Opis, [IdStatusu] = @IdStatusu, [IdTematu] = @IdTematu, [DataZgloszenia] = @DataZgloszenia, [DataZakonczenia] = @DataZakonczenia,  [IdSpecjalisty] = @IdSpecjalisty WHERE [IDZgloszenia] = @IDZgloszenia">
         <SelectParameters>
             <asp:SessionParameter Name="IdUzytkownika" SessionField="USER_ID" Type="Int32" />
