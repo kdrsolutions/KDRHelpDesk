@@ -12,7 +12,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         string sqlstring;
         sqlstring = "SELECT DataNastWywol, Opis FROM [Przypomnienia] WHERE IdUzytkownika = @USERID AND DataNastWywol <= GETDATE();";
-
+       
         using (var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HelpDeskConnectionString"].ConnectionString))
         using (var cmd = conn.CreateCommand())
         {

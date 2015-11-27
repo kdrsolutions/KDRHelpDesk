@@ -6,8 +6,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>"
         SelectCommand="SELECT NULL AS IdTypu, 'Wybierz...' AS Nazwa
-        UNION ALL
-        SELECT * FROM [Tematy] WHERE ([Aktywny] = 1)"></asp:SqlDataSource>
+        UNION
+        SELECT IdTypu, Nazwa FROM [Tematy] WHERE ([Aktywny] = 1)"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>"
         SelectCommand="SELECT NULL AS IdStatusu, 'Wybierz...' AS Nazwa
         UNION ALL
@@ -40,11 +40,9 @@
                 <td>
                     <asp:Label ID="DataZakonczeniaLabel" runat="server" Text='<%# Eval("DataZakonczenia") %>' />
                 </td>
+              
                 <td>
-                    <asp:Label ID="IdUzytkownikaLabel" runat="server" Text='<%# Eval("IdUzytkownika") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IdSpecjalistyLabel" runat="server" Text='<%# Eval("IdSpecjalisty") %>' />
+                    <asp:Label ID="IdSpecjalistyLabel" runat="server" Text='<%# Eval("Specjalista") %>' />
                 </td>
             </tr>
         </ItemTemplate>
@@ -74,12 +72,12 @@
                 </td>
                 <td>
                     <asp:DropDownList ID="dropdownlist1" runat="server" DataSourceID="sqldatasource3"
-                        DataTextField="nazwa" DataValueField="idstatusu">
+                        DataTextField="nazwa" DataValueField="Idstatusu">
                     </asp:DropDownList>
                  </td>
                  <td>
                     <asp:DropDownList ID="dropdownlist2" runat="server" DataSourceID="sqldatasource5"
-                        DataTextField="nazwa" DataValueField="idstatusu">
+                        DataTextField="nazwa" DataValueField="idtypu">
                     </asp:DropDownList>
                 </td>
                 
@@ -126,10 +124,7 @@
                                     DataZakonczenia
                                 </th>
                                 <th runat="server">
-                                    IdUzytkownika
-                                </th>
-                                <th runat="server">
-                                    IdSpecjalisty
+                                    Specjalista
                                 </th>
                             </tr>
                             <tr id="itemPlaceholder" runat="server">
@@ -187,7 +182,7 @@
                 <td>
                 </td>
                 <td>
-                    <asp:TextBox ID="IdSpecjalistyTextBox" runat="server" Text='<%# Bind("IdSpecjalisty") %>' />
+                    <asp:TextBox ID="IdSpecjalistyTextBox" runat="server" Text='<%# Bind("Specjalista") %>' />
                 </td>
             </tr>
         </EditItemTemplate>
@@ -220,7 +215,7 @@
                     <asp:Label ID="IdUzytkownikaLabel" runat="server" Text='<%# Eval("IdUzytkownika") %>' />
                 </td>
                 <td>
-                    <asp:Label ID="IdSpecjalistyLabel" runat="server" Text='<%# Eval("IdSpecjalisty") %>' />
+                    <asp:Label ID="IdSpecjalistyLabel" runat="server" Text='<%# Eval("Specjalista") %>' />
                 </td>
             </tr>
         </SelectedItemTemplate>
@@ -228,10 +223,11 @@
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>"
         DeleteCommand="DELETE FROM [Zgloszenia] WHERE [IDZgloszenia] = @IDZgloszenia"
         InsertCommand="INSERT INTO [Zgloszenia] ([Temat], [Opis], [IdStatusu], [IdTematu], [DataZgloszenia], [DataZakonczenia], [IdUzytkownika], [IdSpecjalisty]) VALUES (@Temat, @Opis, 1, @IdTematu, @DataZgloszenia, @DataZakonczenia, @IdUzytkownika, @IdSpecjalisty)"
-        SelectCommand="SELECT z.* , s.Nazwa AS StatusNazwa
+        SelectCommand="SELECT z.* , s.Nazwa AS StatusNazwa, u.Nazwisko + ' ' + u.Imie AS Specjalista
 FROM [Zgloszenia] z
 LEFT JOIN ZgloszeniaStatusy s ON s.IdStatusu = z.IdStatusu
-WHERE ([IdUzytkownika] = @IdUzytkownika) 
+LEFT JOIN Uzytkownicy u ON u.IdUzytkownika = z.IDSpecjalisty
+WHERE (u.[IdUzytkownika] = 2) 
 ORDER BY [DataZgloszenia] DESC" UpdateCommand="UPDATE [Zgloszenia] SET [Temat] = @Temat, [Opis] = @Opis, [IdStatusu] = @IdStatusu, [IdTematu] = @IdTematu, [DataZgloszenia] = @DataZgloszenia, [DataZakonczenia] = @DataZakonczenia,  [IdSpecjalisty] = @IdSpecjalisty WHERE [IDZgloszenia] = @IDZgloszenia">
         <SelectParameters>
             <asp:SessionParameter Name="IdUzytkownika" SessionField="USER_ID" Type="Int32" />
@@ -293,7 +289,7 @@ ORDER BY [DataZgloszenia] DESC" UpdateCommand="UPDATE [Zgloszenia] SET [Temat] =
             <asp:Parameter Name="IdSpecjalisty" Type="Int32" />
         </InsertParameters>
     </asp:SqlDataSource>
-    Korespondencja
+    
     <asp:ListView ID="ListView2" runat="server" DataKeyNames="IdKorespondencji" Visible="false"
         DataSourceID="SqlDataSource4" InsertItemPosition="LastItem">
         <ItemTemplate>

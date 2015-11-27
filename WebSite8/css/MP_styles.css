@@ -301,3 +301,13 @@ div#MP_przypomnienia > ul > li:hover div#id1
 	display: block;
 	
 }
+table.raport 
+{
+    width:100%;
+    height:100%; 
+}
+table.raport th
+{
+
+    
+}

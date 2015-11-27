@@ -41,7 +41,7 @@
                             <span class="glyphicon glyphicon-dashboard li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li4" runat="server" visible="False"><a href="Przypomnienia.aspx">
+                    <li id="Li4" runat="server" visible="False"><a href="Przypomnienia2.aspx">
                         <div class="col-xs-10">
                             <span>Przypomnienia</span>
                         </div>
@@ -90,7 +90,7 @@
                                     <span class="glyphicon glyphicon-wrench li_icon"></span>
                                 </div>
                             </a></li>
-                            <li id="Li3_5" runat="server" visible="False"><a href="RaportUzytkownicy.aspx">
+                            <li id="Li3_5" runat="server" visible="False"><a href="Uzytkownicy2.aspx">
                                 <div class="col-xs-10">
                                     <span>Użytkownicy</span>
                                 </div>
