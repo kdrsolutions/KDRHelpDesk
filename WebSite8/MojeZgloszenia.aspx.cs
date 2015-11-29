@@ -11,4 +11,13 @@ public partial class MojeZgloszenia2 : System.Web.UI.Page
     {
 
     }
+    public string ProcessMyDataItem(object myValue)
+    {
+        if (myValue.ToString() == "01.01.1900 00:00:00")
+        {
+            return "";
+        }
+
+        return myValue.ToString();
+    }
 }

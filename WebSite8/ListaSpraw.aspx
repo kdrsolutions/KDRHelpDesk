@@ -1,264 +1,144 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ListaSpraw.aspx.cs" Inherits="ListaSpraw" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+    CodeFile="ListaSpraw.aspx.cs" Inherits="ListaSpraw" Title="Untitled Page" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:ListView ID="ListView1" runat="server" DataKeyNames="IDZgloszenia" 
-    DataSourceID="SqlDataSource1">
-        <ItemTemplate>
-            <tr style="background-color: #FFFBD6;color: #333333;">
-                <td>
-                    <asp:Label ID="IDZgloszeniaLabel" runat="server" 
-                        Text='<%# Eval("IDZgloszenia") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="TematLabel" runat="server" Text='<%# Eval("Temat") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="OpisLabel" runat="server" Text='<%# Eval("Opis") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IdStatusuLabel" runat="server" Text='<%# Eval("IdStatusu") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IdTematuLabel" runat="server" Text='<%# Eval("IdTematu") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="DataZgloszeniaLabel" runat="server" 
-                        Text='<%# Eval("DataZgloszenia") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="DataZakonczeniaLabel" runat="server" 
-                        Text='<%# Eval("DataZakonczenia") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IDUzytkownikaLabel" runat="server" 
-                        Text='<%# Eval("IDUzytkownika") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IDSpecjalistyLabel" runat="server" 
-                        Text='<%# Eval("IDSpecjalisty") %>' />
-                </td>
-            </tr>
-        </ItemTemplate>
-        <AlternatingItemTemplate>
-            <tr style="background-color: #FAFAD2;color: #284775;">
-                <td>
-                    <asp:Label ID="IDZgloszeniaLabel" runat="server" 
-                        Text='<%# Eval("IDZgloszenia") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="TematLabel" runat="server" Text='<%# Eval("Temat") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="OpisLabel" runat="server" Text='<%# Eval("Opis") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IdStatusuLabel" runat="server" Text='<%# Eval("IdStatusu") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IdTematuLabel" runat="server" Text='<%# Eval("IdTematu") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="DataZgloszeniaLabel" runat="server" 
-                        Text='<%# Eval("DataZgloszenia") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="DataZakonczeniaLabel" runat="server" 
-                        Text='<%# Eval("DataZakonczenia") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IDUzytkownikaLabel" runat="server" 
-                        Text='<%# Eval("IDUzytkownika") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IDSpecjalistyLabel" runat="server" 
-                        Text='<%# Eval("IDSpecjalisty") %>' />
-                </td>
-            </tr>
-        </AlternatingItemTemplate>
-        <EmptyDataTemplate>
-            <table runat="server" 
-                style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
-                <tr>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="content_container">
+        <h4>Lista zgłoszeń dla Twojej specjalizacji</h4>
+        <asp:ListView ID="ListView1" runat="server" DataKeyNames="IDZgloszenia" DataSourceID="SqlDataSource1" onitemupdating="ListView1_ItemUpdating">
+            
+            <ItemTemplate>
+                <tr class="tbodyer">
+                    <td style="text-align: center;">
+                        <asp:Label ID="IDZgloszeniaLabel" runat="server" Text='<%# Eval("IDZgloszenia") %>' />
+                    </td>
                     <td>
-                        No data was returned.</td>
-                </tr>
-            </table>
-        </EmptyDataTemplate>
-        <InsertItemTemplate>
-            <tr style="">
-                <td>
-                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" 
-                        Text="Insert" />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" 
-                        Text="Clear" />
-                </td>
-                <td>
-                    &nbsp;</td>
-                <td>
-                    <asp:TextBox ID="TematTextBox" runat="server" Text='<%# Bind("Temat") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="OpisTextBox" runat="server" Text='<%# Bind("Opis") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="IdStatusuTextBox" runat="server" 
-                        Text='<%# Bind("IdStatusu") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="IdTematuTextBox" runat="server" 
-                        Text='<%# Bind("IdTematu") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="DataZgloszeniaTextBox" runat="server" 
-                        Text='<%# Bind("DataZgloszenia") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="DataZakonczeniaTextBox" runat="server" 
-                        Text='<%# Bind("DataZakonczenia") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="IDUzytkownikaTextBox" runat="server" 
-                        Text='<%# Bind("IDUzytkownika") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="IDSpecjalistyTextBox" runat="server" 
-                        Text='<%# Bind("IDSpecjalisty") %>' />
-                </td>
-            </tr>
-        </InsertItemTemplate>
-        <LayoutTemplate>
-            <table runat="server">
-                <tr runat="server">
-                    <td runat="server">
-                        <table ID="itemPlaceholderContainer" runat="server" border="1" 
-                            style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                            <tr runat="server" style="background-color: #FFFBD6;color: #333333;">
-                                <th runat="server">
-                                    IDZgloszenia</th>
-                                <th runat="server">
-                                    Temat</th>
-                                <th runat="server">
-                                    Opis</th>
-                                <th runat="server">
-                                    IdStatusu</th>
-                                <th runat="server">
-                                    IdTematu</th>
-                                <th runat="server">
-                                    DataZgloszenia</th>
-                                <th runat="server">
-                                    DataZakonczenia</th>
-                                <th runat="server">
-                                    IDUzytkownika</th>
-                                <th runat="server">
-                                    IDSpecjalisty</th>
-                            </tr>
-                            <tr ID="itemPlaceholder" runat="server">
-                            </tr>
-                        </table>
+                        <asp:Label ID="TematLabel" runat="server" Text='<%# Eval("Temat") %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="StatusLabel" runat="server" Text='<%# Eval("Status") %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="DataZgloszeniaLabel" runat="server" Text='<%# Eval("DataZgloszenia") %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="DataRozwiazaniaLabel" runat="server" Text='<%# ProcessMyDataItem(Eval("DataZakonczenia")) %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="IDUzytkownikaLabel" runat="server" Text='<%# String.Format("{1} {0}", Eval("Imie"), Eval("Nazwisko")) %>' />
+                    </td>
+                    <td style="text-align: center;">
+                        <asp:LinkButton ID="LinkButton2" data-container="body" data-trigger="click" data-title='<%# Eval("Temat") %>' data-toggle="popover" data-placement="left" data-content='<%# Eval("Opis") %>'><span style="color: #272727;padding-top:2px;" class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                    </td>
+                    <td style="text-align: center;">
+                        <asp:LinkButton CommandName="Edit" ID="LinkButton1" runat="server"><span style="color: #272727; padding-top: 2px;" class="glyphicon glyphicon-cog"></span></asp:LinkButton>
                     </td>
                 </tr>
-                <tr runat="server">
-                    <td runat="server" 
-                        style="text-align: center;background-color: #FFCC66;font-family: Verdana, Arial, Helvetica, sans-serif;color: #333333;">
-                        <asp:DataPager ID="DataPager1" runat="server">
-                            <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
-                                    ShowLastPageButton="True" />
-                            </Fields>
-                        </asp:DataPager>
+            </ItemTemplate>
+            <EditItemTemplate>
+                <tr class="tbodyer">
+                    <td style="text-align: center;">
+                        <asp:Label ID="IDZgloszeniaLabel" runat="server" Text='<%# Eval("IDZgloszenia") %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="TematLabel" runat="server" Text='<%# Eval("Temat") %>' />
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="dropdownlist1" DataSourceID="SqlDataSource3" DataTextField="Nazwa"
+                            DataValueField="IdStatusu" runat="server" />
+                        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>"
+                            SelectCommand="SELECT * FROM ZgloszeniaStatusy;"></asp:SqlDataSource>
+                    </td>
+                    <td>
+                        <asp:Label ID="DataZgloszeniaLabel" runat="server" Text='<%# Eval("DataZgloszenia") %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="DataRozwiazaniaLabel" runat="server" Text='<%# ProcessMyDataItem(Eval("DataZakonczenia")) %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="IDUzytkownikaLabel" runat="server" Text='<%# String.Format("{1} {0}", Eval("Imie"), Eval("Nazwisko")) %>' />
+                    </td>
+                    <td style="text-align: center;">
+                        <asp:LinkButton ID="LinkButton3" data-container="body" data-trigger="click" data-title='<%# Eval("Temat") %>' data-toggle="popover" data-placement="left" data-content='<%# Eval("Opis") %>'><span style="color: #272727;padding-top:2px;" class="glyphicon glyphicon-search"></span></asp:LinkButton>
+                    </td>
+                    <td style="text-align: center;">
+                        <asp:LinkButton CommandName="Update" ID="LinkButton1" runat="server"><span style="color: #5cb85c; padding-top: 2px;" class="glyphicon glyphicon-ok"></span></asp:LinkButton>
                     </td>
                 </tr>
-            </table>
-        </LayoutTemplate>
-        <EditItemTemplate>
-            <tr style="background-color: #FFCC66;color: #000080;">
-                <td>
-                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" 
-                        Text="Update" />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" 
-                        Text="Cancel" />
-                </td>
-                <td>
-                    <asp:Label ID="IDZgloszeniaLabel1" runat="server" 
-                        Text='<%# Eval("IDZgloszenia") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="TematTextBox" runat="server" Text='<%# Bind("Temat") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="OpisTextBox" runat="server" Text='<%# Bind("Opis") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="IdStatusuTextBox" runat="server" 
-                        Text='<%# Bind("IdStatusu") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="IdTematuTextBox" runat="server" 
-                        Text='<%# Bind("IdTematu") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="DataZgloszeniaTextBox" runat="server" 
-                        Text='<%# Bind("DataZgloszenia") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="DataZakonczeniaTextBox" runat="server" 
-                        Text='<%# Bind("DataZakonczenia") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="IDUzytkownikaTextBox" runat="server" 
-                        Text='<%# Bind("IDUzytkownika") %>' />
-                </td>
-                <td>
-                    <asp:TextBox ID="IDSpecjalistyTextBox" runat="server" 
-                        Text='<%# Bind("IDSpecjalisty") %>' />
-                </td>
-            </tr>
-        </EditItemTemplate>
-        <SelectedItemTemplate>
-            <tr style="background-color: #FFCC66;font-weight: bold;color: #000080;">
-                <td>
-                    <asp:Label ID="IDZgloszeniaLabel" runat="server" 
-                        Text='<%# Eval("IDZgloszenia") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="TematLabel" runat="server" Text='<%# Eval("Temat") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="OpisLabel" runat="server" Text='<%# Eval("Opis") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IdStatusuLabel" runat="server" Text='<%# Eval("IdStatusu") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IdTematuLabel" runat="server" Text='<%# Eval("IdTematu") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="DataZgloszeniaLabel" runat="server" 
-                        Text='<%# Eval("DataZgloszenia") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="DataZakonczeniaLabel" runat="server" 
-                        Text='<%# Eval("DataZakonczenia") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IDUzytkownikaLabel" runat="server" 
-                        Text='<%# Eval("IDUzytkownika") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="IDSpecjalistyLabel" runat="server" 
-                        Text='<%# Eval("IDSpecjalisty") %>' />
-                </td>
-            </tr>
-        </SelectedItemTemplate>
-    </asp:ListView>
+            </EditItemTemplate>
+            <EmptyDataTemplate>
+                <table runat="server">
+                    <tr>
+                        <td>
+                            No data was returned.
+                        </td>
+                    </tr>
+                </table>
+            </EmptyDataTemplate>
+            <LayoutTemplate>
+                <table runat="server">
+                    <tr runat="server">
+                        <td runat="server">
+                            <table id="itemPlaceholderContainer" runat="server" class="table table-bordered">
+                                <tr runat="server" class="theader">
+                                    <th runat="server" width="40">
+                                        ID
+                                    </th>
+                                    <th runat="server">
+                                        Temat
+                                    </th>
+                                    <th runat="server">
+                                        Status
+                                    </th>
+                                    <th runat="server">
+                                        Data zgłoszenia
+                                    </th>
+                                    <th id="Th1" runat="server">
+                                        Data rozwiązania
+                                    </th>
+                                    <th runat="server">
+                                        Użytkownik
+                                    </th>
+                                    <th width="40">
+                                    </th>
+                                    <th width="40">
+                                    </th>
+                                </tr>
+                                <tr id="itemPlaceholder" runat="server" class="tbodyer">
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
+        </asp:ListView>
+    </div>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HelpDeskConnectionString %>"
+        ProviderName="<%$ ConnectionStrings:HelpDeskConnectionString.ProviderName %>"
+        SelectCommand="
+        SELECT 
+z.IDZgloszenia,
+z.temat,
+s.[Nazwa] as Status,
+z.DataZgloszenia,
+z.DataZakonczenia,
+u.Imie,
+u.Nazwisko,
+z.Opis
 
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-    ConnectionString="<%$ ConnectionStrings:HelpDesk1ConnectionString1 %>" 
-    ProviderName="<%$ ConnectionStrings:HelpDesk1ConnectionString1.ProviderName %>" 
-    SelectCommand="SELECT * FROM [Zgloszenia] ORDER BY [IdStatusu], [IdTematu], [IDSpecjalisty]">
-</asp:SqlDataSource>
-
+FROM [Zgloszenia] z
+LEFT JOIN [ZgloszeniaStatusy] s ON z.[IdStatusu] = s.[IdStatusu]
+LEFT JOIN Uzytkownicy u ON z.[IDUzytkownika] = u.[IdUzytkownika]
+LEFT JOIN Specjaliści p ON p.[IDUzytkownika] = u.[IdUzytkownika]
+LEFT JOIN Specjalizacje o ON o.[id] = p.Specjalność
+WHERE z.IDUzytkownika = @idusera AND (p.Specjalność = z.IdSpecjalisty OR u.Administrator = '1')
+ORDER BY z.IdStatusu" UpdateCommand="UPDATE Zgloszenia SET IdStatusu=@IdStatusu WHERE IDZgloszenia=@IDZgloszenia">
+        <SelectParameters>
+            <asp:SessionParameter Name="idusera" SessionField="USER_ID" />
+        </SelectParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="IdStatusu" type="Int32" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
 </asp:Content>
-

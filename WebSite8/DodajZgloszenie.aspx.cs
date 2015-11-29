@@ -1,41 +1,35 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
+using System.Data.SqlClient;
 
-public partial class DodajZgloszenie : System.Web.UI.Page
+public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-    protected void ListView1_ItemInserting(object sender, ListViewInsertEventArgs e)
+
+    protected void sender_Click(object sender, EventArgs e)
     {
-        DropDownList ddl = e.Item.FindControl("DropDownList1") as DropDownList;
-        if (ddl != null)
+        string sqlstring; 
+        sqlstring = "INSERT INTO Zgloszenia (Temat, Opis, IdStatusu, IDUzytkownika, IDSpecjalisty) VALUES (@temat, @opis, @status, @mojeid, @idspec);";
+        using (var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HelpDeskConnectionString"].ConnectionString))
+        using (var cmd = conn.CreateCommand())
         {
-            e.Values["IdStatusu"] = ddl.SelectedValue;
+            conn.Open();
+            cmd.CommandText = sqlstring;
+            cmd.Parameters.AddWithValue("@temat", nazwatematu.Value);
+            cmd.Parameters.AddWithValue("@opis", Opis.Value);
+            cmd.Parameters.AddWithValue("@status", "1");
+            cmd.Parameters.AddWithValue("@idspec", DropDownList1.SelectedValue);
+            cmd.Parameters.AddWithValue("@mojeid", (int)Session["USER_ID"]);
+            cmd.ExecuteReader();
+            conn.Close();
         }
-
-        ddl = e.Item.FindControl("DropDownList2") as DropDownList;
-        if (ddl != null)
-        {
-            e.Values["IdTematu"] = ddl.SelectedValue;
-        }
-
-
-
-    }
-    protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        ListView2.Visible = true;
+        Response.Redirect("~/MojeZgloszenia.aspx", false);
     }
 }

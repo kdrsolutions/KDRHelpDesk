@@ -10,6 +10,8 @@
 
     <script src="js/JScript.js" type="text/javascript"></script>
 
+    <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -41,7 +43,7 @@
                             <span class="glyphicon glyphicon-dashboard li_icon"></span>
                         </div>
                     </a></li>
-                    <li id="Li4" runat="server" visible="False"><a href="Przypomnienia2.aspx">
+                    <li id="Li4" runat="server" visible="False"><a href="Przypomnienia.aspx">
                         <div class="col-xs-10">
                             <span>Przypomnienia</span>
                         </div>
@@ -144,10 +146,11 @@
     <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
 
     <script src="js/bootstrap.min.js"></script>
-
+    
     <script>
         $(function() {
-            $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="popover"]').popover()
         })
     </script>
 

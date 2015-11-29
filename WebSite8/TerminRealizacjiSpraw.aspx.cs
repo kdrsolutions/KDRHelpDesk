@@ -17,4 +17,13 @@ public partial class TerminRealizacjiSpraw : System.Web.UI.Page
     {
 
     }
+    public string ProcessMyDataItem(object myValue)
+    {
+        if (myValue.ToString() == "01.01.1900 00:00:00")
+        {
+            return "Nie określono";
+        }
+
+        return myValue.ToString();
+    }
 }

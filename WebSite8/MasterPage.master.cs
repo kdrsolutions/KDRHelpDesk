@@ -10,41 +10,47 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string sqlstring;
-        sqlstring = "SELECT DataNastWywol, Opis FROM [Przypomnienia] WHERE IdUzytkownika = @USERID AND DataNastWywol <= GETDATE();";
-       
-        using (var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HelpDeskConnectionString"].ConnectionString))
-        using (var cmd = conn.CreateCommand())
+        if (Session["USER_ID"] == null)
         {
-            conn.Open();
-            cmd.CommandText = sqlstring;
-            cmd.Parameters.AddWithValue("@USERID", (int)Session["USER_ID"]);
-            var reader = cmd.ExecuteReader();
-            using (reader)
+            Response.Redirect("~/login_page.aspx", false);
+        }
+        else
+        {
+            string sqlstring;
+            sqlstring = "SELECT DataNastWywol, Opis FROM [Przypomnienia] WHERE IdUzytkownika = @USERID AND DataNastWywol <= GETDATE();";
+
+            using (var conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["HelpdeskConnectionString"].ConnectionString))
+            using (var cmd = conn.CreateCommand())
             {
-                while (reader.HasRows)
+                conn.Open();
+                cmd.CommandText = sqlstring;
+                cmd.Parameters.AddWithValue("@USERID", (int)Session["USER_ID"]);
+                var reader = cmd.ExecuteReader();
+                using (reader)
                 {
-                    while (reader.Read())
+                    while (reader.HasRows)
                     {
-                        HtmlGenericControl li = new HtmlGenericControl("li");
-                        for (int i = 0; i < 2; i++)
+                        while (reader.Read())
                         {
-                            HtmlGenericControl span = new HtmlGenericControl("div");
-                            span.Attributes.Add("id", "id"+i.ToString());
-                            span.InnerText = reader.GetValue(i).ToString();
-                            li.Controls.Add(span);
+                            HtmlGenericControl li = new HtmlGenericControl("li");
+                            for (int i = 0; i < 2; i++)
+                            {
+                                HtmlGenericControl span = new HtmlGenericControl("div");
+                                span.Attributes.Add("id", "id" + i.ToString());
+                                span.InnerText = reader.GetValue(i).ToString();
+                                li.Controls.Add(span);
+                            }
+                            ListBox1.Controls.Add(li);
                         }
-                        ListBox1.Controls.Add(li);
+                        reader.NextResult();
                     }
-                    reader.NextResult();
                 }
             }
-        }
 
-        if (Session["USER_NAME"] != null)
-            Label1.Text = (String)Session["USER_NAME"];
+            if (Session["USER_NAME"] != null)
+                Label1.Text = (String)Session["USER_NAME"];
 
-        if (Session["PERMISSION_SPEC"] != null && (bool)Session["PERMISSION_SPEC"])
+            if (Session["PERMISSION_SPEC"] != null && (bool)Session["PERMISSION_SPEC"])
             {
                 Li3.Visible = true;
                 Li3_1.Visible = true;
@@ -52,7 +58,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 Li3_3.Visible = true;
             }
 
-        if (Session["PERMISSION_ADMIN"] != null && (bool)Session["PERMISSION_ADMIN"])
+            if (Session["PERMISSION_ADMIN"] != null && (bool)Session["PERMISSION_ADMIN"])
             {
                 Li2.Visible = true;
                 Li3.Visible = true;
@@ -63,9 +69,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 Li3_5.Visible = true;
                 Li4.Visible = true;
             }
-
-        else
-            Response.Redirect("~/login_page.aspx", false);
+        }
     }
     protected void logout_Click(object sender, EventArgs e)
     {
